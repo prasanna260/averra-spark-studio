@@ -4,14 +4,12 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
-  as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
 }) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -31,6 +29,5 @@ export function Reveal({
     return () => obs.disconnect();
   }, [delay]);
 
-  // @ts-expect-error dynamic tag ref typing
-  return <Tag ref={ref} className={`reveal ${className}`}>{children}</Tag>;
+  return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
 }
