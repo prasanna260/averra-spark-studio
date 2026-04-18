@@ -18,22 +18,20 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-5"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <nav
           className={`flex items-center justify-between rounded-full px-5 py-3 transition-all duration-500 ${
-            scrolled ? "glass shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)]" : ""
+            scrolled ? "bg-cream border-2 border-ink shadow-pop" : ""
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group">
-            <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-foreground">
-              <span className="font-display text-xl font-bold text-cream">A</span>
-              <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full bg-gold animate-float-y" />
+            <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink border-2 border-ink">
+              <span className="font-display text-xl text-cream">A</span>
+              <span className="absolute -right-1 -top-1 h-3.5 w-3.5 rounded-full bg-yellow border-2 border-ink animate-float-y" />
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight">
+            <span className="font-display text-xl tracking-tight">
               Averra<span className="text-crimson">.</span>
             </span>
           </a>
@@ -43,7 +41,7 @@ export function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="px-4 py-2 text-sm font-medium text-ink-soft hover:text-foreground transition-colors rounded-full hover:bg-muted"
+                  className="px-4 py-2 text-sm font-bold text-ink hover:text-crimson transition-colors rounded-full"
                 >
                   {l.label}
                 </a>
@@ -53,10 +51,9 @@ export function Navbar() {
 
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-cream hover:bg-crimson transition-colors"
+            className="btn-pop bg-yellow text-ink text-sm py-2.5 px-5"
           >
-            Let's Talk
-            <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+            Let's Talk!
           </a>
         </nav>
       </div>
