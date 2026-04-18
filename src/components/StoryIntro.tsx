@@ -2,25 +2,30 @@ import { Reveal } from "./Reveal";
 
 export function StoryIntro() {
   return (
-    <section className="relative py-32 md:py-44">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
+    <section className="relative py-24 md:py-36 bg-peach border-y-2 border-ink overflow-hidden">
+      <div aria-hidden className="absolute inset-0 dotted-bg opacity-20" />
+      <div className="relative mx-auto max-w-5xl px-5 sm:px-8 text-center">
         <Reveal>
-          <p className="text-sm uppercase tracking-[0.3em] text-crimson font-semibold mb-8">
-            The new rules of brand
+          <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-8">
+            ✦ The new rules of brand ✦
           </p>
         </Reveal>
         <Reveal delay={150}>
-          <h2 className="font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight text-balance">
-            Brands today don&apos;t need <span className="line-through decoration-crimson decoration-[3px]">marketing</span>.
+          <h2 className="font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1] tracking-tight text-ink text-balance">
+            Brands today don&apos;t need{" "}
+            <span className="line-through decoration-crimson decoration-[6px]">marketing</span>.
           </h2>
         </Reveal>
         <Reveal delay={350}>
-          <h2 className="mt-4 font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight text-balance">
-            They need <span className="gradient-brand-text italic">attention.</span>
+          <h2 className="mt-6 font-display text-[clamp(2.4rem,6vw,5rem)] leading-[1] tracking-tight text-ink text-balance">
+            They need{" "}
+            <span className="bg-yellow px-4 py-1 inline-block border-2 border-ink shadow-pop -rotate-2">
+              attention.
+            </span>
           </h2>
         </Reveal>
         <Reveal delay={550}>
-          <p className="mt-10 mx-auto max-w-2xl text-lg md:text-xl text-ink-soft leading-relaxed">
+          <p className="mt-10 mx-auto max-w-2xl text-lg md:text-xl text-ink/80 font-medium">
             We design, film, post, and optimize — all under one roof. Less agency theater,
             more measurable magic.
           </p>
