@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import boyMascot from "@/assets/boy-mascot.png";
+import tvMascot from "@/assets/tv-mascot.png";
 
 const ROTATING = ["#JustViral", "#JustAverra", "#JustBuilt", "#JustScale"];
 
@@ -14,22 +16,24 @@ export function Hero() {
       id="top"
       className="relative min-h-screen overflow-hidden pt-32 pb-20 bg-cyan"
     >
-      {/* side rails */}
-      <div className="hidden lg:flex absolute left-0 top-0 bottom-0 w-10 bg-yellow border-r-2 border-ink z-10 items-center justify-center">
-        <span className="font-display text-sm tracking-[0.3em] text-ink rotate-180" style={{ writingMode: "vertical-rl" }}>
-          GET AVERRA!
-        </span>
-      </div>
-      <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-10 bg-yellow border-l-2 border-ink z-10 items-center justify-center">
-        <span className="font-display text-sm tracking-[0.3em] text-ink" style={{ writingMode: "vertical-rl" }}>
-          GOT AVERRA!
-        </span>
-      </div>
+      {/* Floating mascots */}
+      <img
+        src={boyMascot}
+        alt="Averra mascot superhero boy"
+        className="hidden md:block absolute left-2 lg:left-6 top-32 lg:top-40 w-40 lg:w-56 xl:w-64 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
+        style={{ ["--r" as never]: "-6deg" }}
+      />
+      <img
+        src={tvMascot}
+        alt="Averra retro TV mascot"
+        className="hidden md:block absolute right-2 lg:right-6 top-36 lg:top-48 w-44 lg:w-60 xl:w-72 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
+        style={{ ["--r" as never]: "5deg", animationDelay: "1.2s" }}
+      />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-4 py-1.5 text-xs font-bold text-ink mb-8 shadow-pop">
           <span className="h-2 w-2 rounded-full bg-emerald" />
-          NOW BOOKING Q1 — SAY HI 👋
+          NOW BOOKING Q1 · SAY HI 👋
         </div>
 
         <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.9] tracking-[-0.03em] text-cream text-balance">
@@ -42,9 +46,9 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-cream/90 font-medium">
+        <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-cream font-bold text-outline-ink">
           A full-stack creative studio for brands that refuse to blend in.
-          Branding, ads, content, growth — done loud, done right.
+          Branding, ads, content, growth. Done loud, done right.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -62,9 +66,9 @@ export function Hero() {
       <div className="relative mt-20 mx-auto max-w-5xl px-5 sm:px-8">
         <div className="grid grid-cols-3 gap-3">
           {[
-            { v: "240M+", k: "views generated", c: "bg-crimson text-cream" },
-            { v: "180+", k: "brands launched", c: "bg-yellow text-ink" },
-            { v: "12×", k: "avg. ROAS", c: "bg-emerald text-cream" },
+            { v: "0", k: "views generated", c: "bg-crimson text-cream" },
+            { v: "0", k: "brands launched", c: "bg-yellow text-ink" },
+            { v: "0", k: "avg. ROAS", c: "bg-emerald text-cream" },
           ].map((s) => (
             <div
               key={s.k}

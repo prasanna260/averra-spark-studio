@@ -26,12 +26,12 @@ export function StoryIntro() {
         </Reveal>
         <Reveal delay={550}>
           <p className="mt-10 mx-auto max-w-2xl text-lg md:text-xl text-ink/80 font-medium">
-            We design, shoot, edit, and optimise — no middlemen, just results.
+            We design, shoot, edit, and optimise. <span className="font-black text-ink">NO MIDDLE MEN, JUST RESULT.</span>
           </p>
         </Reveal>
         <Reveal delay={700}>
-          <p className="mt-6 font-script text-[clamp(2rem,5vw,3.5rem)] leading-[1] text-crimson -rotate-2 inline-block">
-            We do it all. And we make it count.
+          <p className="mt-6 font-comic text-[clamp(2.4rem,6vw,4.5rem)] leading-[1] text-crimson -rotate-2 inline-block tracking-wider">
+            We do it all. And we make it count!
           </p>
         </Reveal>
       </div>
