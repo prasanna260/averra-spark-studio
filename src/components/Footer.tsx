@@ -1,17 +1,21 @@
+import logo from "@/assets/logo.png";
+
 export function Footer() {
   return (
     <footer className="bg-ink text-cream pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid md:grid-cols-12 gap-10 pb-14 border-b-2 border-cream/20">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-yellow border-2 border-yellow">
-                <span className="font-display text-xl text-ink">A</span>
-              </span>
+            <a href="#top" className="flex items-center gap-2 mb-6 group w-fit">
+              <img
+                src={logo}
+                alt="AverraCreations logo"
+                className="h-14 w-14 object-contain transition-transform group-hover:-rotate-6"
+              />
               <span className="font-display text-2xl">
                 Averra<span className="text-yellow">.</span>
               </span>
-            </div>
+            </a>
             <p className="text-cream/70 max-w-sm leading-relaxed font-medium">
               A full-stack creative studio building brands the internet can&apos;t scroll past.
             </p>
@@ -32,16 +36,15 @@ export function Footer() {
               <li><a href="#" className="hover:text-yellow transition-colors">Instagram</a></li>
               <li><a href="#" className="hover:text-yellow transition-colors">LinkedIn</a></li>
               <li><a href="#" className="hover:text-yellow transition-colors">YouTube</a></li>
-              <li><a href="#" className="hover:text-yellow transition-colors">Behance</a></li>
             </ul>
           </div>
 
           <div className="md:col-span-3">
             <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Get in touch</h4>
-            <a href="mailto:hello@averracreations.com" className="block text-sm font-bold hover:text-yellow transition-colors mb-2">
-              hello@averracreations.com
+            <a href="mailto:averracreations@gmail.com" className="block text-sm font-bold hover:text-yellow transition-colors mb-2">
+              averracreations@gmail.com
             </a>
-            <p className="text-sm text-cream/60 font-medium">Mon–Fri · 10am to 7pm IST</p>
+            <p className="text-sm text-cream/60 font-medium">Sun · Fri · 9am to 12am</p>
           </div>
         </div>
 
