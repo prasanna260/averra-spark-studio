@@ -7,12 +7,11 @@ import ads from "@/assets/work-ads.jpg";
 import influencer from "@/assets/work-influencer.jpg";
 
 const projects = [
-  { img: branding, tag: "Branding", title: "Maison Velvet", metric: "+340% retail uplift", pill: "bg-crimson text-cream" },
-  { img: social, tag: "Social", title: "Aura Beauty Reels", metric: "82M organic views", pill: "bg-emerald text-cream" },
-  { img: ads, tag: "Performance", title: "Northstar D2C", metric: "9.4× ROAS", pill: "bg-yellow text-ink" },
-  { img: content, tag: "Production", title: "Kinetic Studios", metric: "12 spots in 30 days", pill: "bg-crimson text-cream" },
-  { img: web, tag: "Web", title: "Fable Commerce", metric: "+58% conversion", pill: "bg-emerald text-cream" },
-  { img: influencer, tag: "Influencer", title: "Halo Creator Network", metric: "240+ creators", pill: "bg-yellow text-ink" },
+  { img: social, tag: "Social", title: "Social Media Marketing", metric: "Reels, posts & paid social", pill: "bg-emerald text-cream" },
+  { img: content, tag: "Production", title: "Production Ad Shoot", metric: "Studio-grade ad films", pill: "bg-crimson text-cream" },
+  { img: ads, tag: "Creative", title: "Content Creation", metric: "UGC, reels & motion", pill: "bg-yellow text-ink" },
+  { img: branding, tag: "Identity", title: "Branding", metric: "Logos, systems & packaging", pill: "bg-crimson text-cream" },
+  { img: web, tag: "Strategy", title: "Content Strategy", metric: "Calendars built to convert", pill: "bg-emerald text-cream" },
 ];
 
 export function Showcase() {
