@@ -16,17 +16,17 @@ import { StickyCTA } from "@/components/StickyCTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AverraCreations — We Build Brands People Can't Ignore" },
+      { title: "AverraCreations · We Build Brands People Can't Ignore" },
       {
         name: "description",
         content:
-          "Premium creative agency for brands, creators & D2C. Branding, ads, content production, web & performance marketing — all under one roof.",
+          "Premium creative agency for brands, creators & D2C. Branding, ads, content production, web & performance marketing · all under one roof.",
       },
-      { property: "og:title", content: "AverraCreations — We Build Brands People Can't Ignore" },
+      { property: "og:title", content: "AverraCreations · We Build Brands People Can't Ignore" },
       {
         property: "og:description",
         content:
-          "Full-stack creative studio. Branding, campaigns, content, growth — engineered for attention.",
+          "Full-stack creative studio. Branding, campaigns, content, growth · engineered for attention.",
       },
     ],
   }),

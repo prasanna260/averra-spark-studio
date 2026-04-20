@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 
 const groups = [
-  { title: "Creators", desc: "From 10K to 10M — we engineer growth loops, not luck.", icon: "✺", bg: "bg-crimson text-cream" },
+  { title: "Creators", desc: "From 10K to 10M · we engineer growth loops, not luck.", icon: "✺", bg: "bg-crimson text-cream" },
   { title: "Startups", desc: "Launch with a brand that punches above its seed round.", icon: "◆", bg: "bg-yellow text-ink" },
   { title: "D2C Brands", desc: "From hero product to category leader. We scale stories.", icon: "❖", bg: "bg-emerald text-cream" },
   { title: "Enterprises", desc: "Refresh, relaunch, reinvigorate. Without the agency lag.", icon: "✦", bg: "bg-cream text-ink" },

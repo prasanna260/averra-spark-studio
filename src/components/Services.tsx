@@ -50,7 +50,7 @@ const services = [
     n: "06",
     eyebrow: "Spend smarter with",
     title: "Performance Marketing",
-    desc: "Spend less, sell more. Meta, Google, TikTok — managed by humans, optimized by data.",
+    desc: "Spend less, sell more. Meta, Google, TikTok · managed by humans, optimized by data.",
     items: ["Meta & Google ads", "Creative testing", "Attribution", "Scale"],
     bg: "bg-cyan",
     pill: "bg-crimson text-cream",
@@ -75,7 +75,7 @@ export function Services() {
           </Reveal>
           <Reveal delay={200}>
             <p className="max-w-md text-ink/80 text-lg font-medium">
-              From the first sketch to the scaled campaign, we own the whole pipeline —
+              From the first sketch to the scaled campaign, we own the whole pipeline ·
               so you stay focused on building the business.
             </p>
           </Reveal>

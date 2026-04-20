@@ -2,7 +2,7 @@ import { Reveal } from "./Reveal";
 
 const steps = [
   { n: "01", title: "Discover", desc: "Audit, listen, dig. We get inside your category before we touch a pixel.", bg: "bg-crimson text-cream" },
-  { n: "02", title: "Create", desc: "Strategy meets craft. Brand, story, content, code — built in tandem.", bg: "bg-yellow text-ink" },
+  { n: "02", title: "Create", desc: "Strategy meets craft. Brand, story, content, code · built in tandem.", bg: "bg-yellow text-ink" },
   { n: "03", title: "Launch", desc: "Coordinated rollout across paid, organic, and earned. Built for momentum.", bg: "bg-emerald text-cream" },
   { n: "04", title: "Scale", desc: "Test, learn, double down. Continuous optimization for compounding returns.", bg: "bg-cream text-ink" },
 ];
