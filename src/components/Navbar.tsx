@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -27,10 +28,11 @@ export function Navbar() {
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group">
-            <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink border-2 border-ink">
-              <span className="font-display text-xl text-cream">A</span>
-              <span className="absolute -right-1 -top-1 h-3.5 w-3.5 rounded-full bg-yellow border-2 border-ink animate-float-y" />
-            </span>
+            <img
+              src={logo}
+              alt="AverraCreations logo"
+              className="h-11 w-11 object-contain transition-transform group-hover:-rotate-6"
+            />
             <span className="font-display text-xl tracking-tight">
               Averra<span className="text-crimson">.</span>
             </span>
