@@ -9,13 +9,13 @@ const stats = [
 
 const testimonials = [
   {
-    quote: "Averra didn't just rebrand us — they rebuilt how we sell. Our cohort retention doubled in a quarter.",
+    quote: "Averra didn't just rebrand us · they rebuilt how we sell. Our cohort retention doubled in a quarter.",
     name: "Priya Sharma",
     role: "Founder, Lumen Skincare",
     bg: "bg-yellow",
   },
   {
-    quote: "The closest thing to having an in-house creative team — except they think 10 steps ahead of us.",
+    quote: "The closest thing to having an in-house creative team · except they think 10 steps ahead of us.",
     name: "Marcus Chen",
     role: "CMO, Ridgeway Outdoor",
     bg: "bg-cream",
