@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import handPoint from "@/assets/hand-point.png";
-import handCatch from "@/assets/hand-catch.png";
 
 const ROTATING = ["#JustViral", "#JustAverra", "#JustBuilt", "#JustScale"];
 
@@ -27,21 +25,6 @@ export function Hero() {
           GOT AVERRA!
         </span>
       </div>
-
-      {/* halftone hands */}
-      <img
-        src={handPoint}
-        alt=""
-        aria-hidden
-        className="absolute left-2 lg:left-16 top-[30%] w-[280px] md:w-[380px] lg:w-[460px] -rotate-[18deg] animate-wiggle drop-shadow-[6px_6px_0_var(--ink)] pointer-events-none"
-      />
-      <img
-        src={handCatch}
-        alt=""
-        aria-hidden
-        className="absolute right-2 lg:right-16 top-[55%] w-[280px] md:w-[380px] lg:w-[460px] rotate-[12deg] animate-wiggle drop-shadow-[6px_6px_0_var(--ink)] pointer-events-none"
-        style={{ animationDelay: "-2s" }}
-      />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-4 py-1.5 text-xs font-bold text-ink mb-8 shadow-pop">
