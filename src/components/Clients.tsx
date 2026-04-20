@@ -1,10 +1,10 @@
 import { Reveal } from "./Reveal";
 
 const groups = [
-  { title: "Creators", desc: "From 10K to 10M · we engineer growth loops, not luck.", icon: "✺", bg: "bg-crimson text-cream" },
-  { title: "Startups", desc: "Launch with a brand that punches above its seed round.", icon: "◆", bg: "bg-yellow text-ink" },
-  { title: "D2C Brands", desc: "From hero product to category leader. We scale stories.", icon: "❖", bg: "bg-emerald text-cream" },
-  { title: "Enterprises", desc: "Refresh, relaunch, reinvigorate. Without the agency lag.", icon: "✦", bg: "bg-cream text-ink" },
+  { title: "Creators", desc: "From 10K to 10M · we engineer growth loops, not luck.", icon: "♠", bg: "bg-crimson text-cream" },
+  { title: "Startups", desc: "Launch with a brand that punches above its seed round.", icon: "♣", bg: "bg-yellow text-ink" },
+  { title: "Visionaries", desc: "You bring the vision · we turn it into something people can't ignore.", icon: "♦", bg: "bg-emerald text-cream" },
+  { title: "Businesses", desc: "From growth sprints to full systems · we help you move faster.", icon: "♥", bg: "bg-cream text-ink" },
 ];
 
 export function Clients() {

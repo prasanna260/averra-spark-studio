@@ -26,14 +26,14 @@ export function Hero() {
       <img
         src={tvMascot}
         alt="Averra retro TV mascot"
-        className="hidden md:block absolute right-2 lg:right-6 top-36 lg:top-48 w-44 lg:w-60 xl:w-72 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
+        className="hidden md:block absolute right-2 lg:right-6 top-32 lg:top-44 w-52 lg:w-72 xl:w-80 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
         style={{ ["--r" as never]: "5deg", animationDelay: "1.2s" }}
       />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-4 py-1.5 text-xs font-bold text-ink mb-8 shadow-pop">
           <span className="h-2 w-2 rounded-full bg-emerald" />
-          NOW BOOKING Q1 · SAY HI 👋
+          WELCOME · VANAKKAM 🙏
         </div>
 
         <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.9] tracking-[-0.03em] text-cream text-balance">
@@ -46,7 +46,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-cream font-bold text-outline-ink">
+        <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-cream font-bold">
           A full-stack creative studio for brands that refuse to blend in.
           Branding, ads, content, growth. Done loud, done right.
         </p>
