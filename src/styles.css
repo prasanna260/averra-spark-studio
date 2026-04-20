@@ -69,6 +69,7 @@
   --font-display: "Archivo Black", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-script: "Caveat Brush", "Archivo Black", cursive;
+  --font-comic: "Bangers", "Caveat Brush", "Archivo Black", cursive;
 
   --shadow-pop: 6px 6px 0 0 var(--ink);
   --shadow-pop-lg: 10px 10px 0 0 var(--ink);
@@ -207,6 +208,15 @@
 /* === Utility classes === */
 .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
 .font-script { font-family: var(--font-script); letter-spacing: 0.01em; }
+.font-comic { font-family: var(--font-comic); letter-spacing: 0.04em; }
+.text-outline-ink {
+  text-shadow:
+    -1.5px -1.5px 0 var(--ink),
+    1.5px -1.5px 0 var(--ink),
+    -1.5px 1.5px 0 var(--ink),
+    1.5px 1.5px 0 var(--ink),
+    0 0 6px color-mix(in oklab, var(--ink) 40%, transparent);
+}
 .text-balance { text-wrap: balance; }
 
 .text-stroke {
