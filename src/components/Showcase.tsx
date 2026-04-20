@@ -2,16 +2,15 @@ import { Reveal } from "./Reveal";
 import branding from "@/assets/work-branding.jpg";
 import social from "@/assets/work-social.jpg";
 import content from "@/assets/work-content.jpg";
-import web from "@/assets/work-web.jpg";
-import ads from "@/assets/work-ads.jpg";
-import influencer from "@/assets/work-influencer.jpg";
+import strategy from "@/assets/work-strategy.jpg";
+import production from "@/assets/work-production.jpg";
 
 const projects = [
   { img: social, tag: "Social", title: "Social Media Marketing", metric: "Reels, posts & paid social", pill: "bg-emerald text-cream" },
-  { img: content, tag: "Production", title: "Production Ad Shoot", metric: "Studio-grade ad films", pill: "bg-crimson text-cream" },
-  { img: ads, tag: "Creative", title: "Content Creation", metric: "UGC, reels & motion", pill: "bg-yellow text-ink" },
+  { img: production, tag: "Production", title: "Production Ad Shoot", metric: "Studio-grade ad films", pill: "bg-crimson text-cream" },
+  { img: content, tag: "Creative", title: "Content Creation", metric: "UGC, reels & motion", pill: "bg-yellow text-ink" },
   { img: branding, tag: "Identity", title: "Branding", metric: "Logos, systems & packaging", pill: "bg-crimson text-cream" },
-  { img: web, tag: "Strategy", title: "Content Strategy", metric: "Calendars built to convert", pill: "bg-emerald text-cream" },
+  { img: strategy, tag: "Strategy", title: "Content Strategy", metric: "Calendars built to convert", pill: "bg-emerald text-cream" },
 ];
 
 export function Showcase() {

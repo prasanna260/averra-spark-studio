@@ -7,27 +7,6 @@ const stats = [
   { v: "0", k: "Client retention", bg: "bg-cream text-ink" },
 ];
 
-const testimonials = [
-  {
-    quote: "Averra didn't just rebrand us · they rebuilt how we sell. Our cohort retention doubled in a quarter.",
-    name: "Priya Sharma",
-    role: "Founder, Lumen Skincare",
-    bg: "bg-yellow",
-  },
-  {
-    quote: "The closest thing to having an in-house creative team · except they think 10 steps ahead of us.",
-    name: "Marcus Chen",
-    role: "CMO, Ridgeway Outdoor",
-    bg: "bg-cream",
-  },
-  {
-    quote: "Three viral campaigns in six months. Our paid CAC dropped 41%. Worth every rupee, twice over.",
-    name: "Anita Rao",
-    role: "Growth Lead, Soma Foods",
-    bg: "bg-peach",
-  },
-];
-
 export function SocialProof() {
   return (
     <section className="relative py-24 md:py-32 bg-cream">
@@ -52,20 +31,32 @@ export function SocialProof() {
           </h2>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 120}>
-              <figure className={`card-pop rounded-3xl p-8 h-full flex flex-col ${t.bg}`}>
-                <div className="font-display text-6xl text-crimson mb-4 leading-none">&ldquo;</div>
-                <blockquote className="text-lg leading-snug mb-6 flex-1 font-medium">{t.quote}</blockquote>
-                <figcaption>
-                  <div className="font-display text-lg">{t.name}</div>
-                  <div className="text-sm opacity-70 font-medium">{t.role}</div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        {/* Work in progress notice board */}
+        <Reveal delay={120}>
+          <div className="relative mx-auto max-w-3xl">
+            {/* tape strips */}
+            <span aria-hidden className="absolute -top-4 left-10 w-24 h-6 bg-yellow/80 border-2 border-ink rotate-[-6deg] shadow-pop" />
+            <span aria-hidden className="absolute -top-4 right-10 w-24 h-6 bg-yellow/80 border-2 border-ink rotate-[5deg] shadow-pop" />
+
+            <div className="card-pop rounded-3xl bg-[repeating-linear-gradient(45deg,oklch(0.85_0.18_85)_0_24px,oklch(0.2_0_0)_24px_48px)] p-2">
+              <div className="rounded-2xl bg-cream border-2 border-ink p-10 md:p-14 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson text-cream border-2 border-ink text-xs font-black uppercase tracking-widest mb-6 shadow-pop">
+                  <span className="h-2 w-2 rounded-full bg-yellow animate-pulse" />
+                  Notice
+                </div>
+                <h3 className="font-display text-5xl md:text-7xl leading-[0.9] mb-4">
+                  Work in <span className="text-crimson">Progress</span>
+                </h3>
+                <p className="text-base md:text-lg font-bold text-ink/70 max-w-md mx-auto">
+                  🚧 Receipts loading. Founder testimonials coming soon · the studio is busy shipping.
+                </p>
+                <div className="mt-6 flex items-center justify-center gap-3 text-2xl">
+                  <span>🔨</span><span>⚠️</span><span>🛠️</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
