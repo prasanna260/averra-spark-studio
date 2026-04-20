@@ -1,10 +1,10 @@
 import { Reveal } from "./Reveal";
 
 const stats = [
-  { v: "1.2B+", k: "Impressions delivered", bg: "bg-crimson text-cream" },
-  { v: "$48M", k: "Revenue influenced", bg: "bg-yellow text-ink" },
-  { v: "180+", k: "Brands partnered", bg: "bg-emerald text-cream" },
-  { v: "97%", k: "Client retention", bg: "bg-cream text-ink" },
+  { v: "0", k: "Impressions delivered", bg: "bg-crimson text-cream" },
+  { v: "0", k: "Revenue influenced", bg: "bg-yellow text-ink" },
+  { v: "0", k: "Brands partnered", bg: "bg-emerald text-cream" },
+  { v: "0", k: "Client retention", bg: "bg-cream text-ink" },
 ];
 
 const testimonials = [
