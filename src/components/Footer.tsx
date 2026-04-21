@@ -1,4 +1,12 @@
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
+
+const policyLinks = [
+  { hash: "refund", label: "Refund & Cancellation" },
+  { hash: "terms", label: "Terms & Conditions" },
+  { hash: "privacy", label: "Privacy Policy" },
+  { hash: "shipping", label: "Shipping & Delivery" },
+];
 
 export function Footer() {
   return (
@@ -45,6 +53,35 @@ export function Footer() {
               averracreations@gmail.com
             </a>
             <p className="text-sm text-cream/60 font-medium">Sun · Fri · 9am to 12am</p>
+          </div>
+        </div>
+
+        <div className="pt-10 pb-6 grid md:grid-cols-2 gap-6 items-start border-b-2 border-cream/20">
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">
+              Terms & Policies
+            </h4>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+              {policyLinks.map((p) => (
+                <li key={p.hash}>
+                  <Link
+                    to="/policies"
+                    hash={p.hash}
+                    className="hover:text-yellow transition-colors"
+                  >
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:text-right">
+            <Link
+              to="/policies"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-black text-yellow hover:underline"
+            >
+              Read full Terms & Policies →
+            </Link>
           </div>
         </div>
 
