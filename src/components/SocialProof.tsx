@@ -9,8 +9,15 @@ const stats = [
 
 export function SocialProof() {
   return (
-    <section className="relative py-24 md:py-32 bg-cream">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section className="relative py-24 md:py-32 bg-cyan overflow-hidden">
+      {/* Decorative comic blobs */}
+      <div aria-hidden className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-yellow border-2 border-ink shadow-pop opacity-90 animate-blob" />
+      <div aria-hidden className="absolute top-1/3 -right-20 w-80 h-80 rounded-full bg-crimson border-2 border-ink shadow-pop opacity-90 animate-blob" style={{ animationDelay: "-6s" }} />
+      <div aria-hidden className="absolute bottom-0 left-1/4 w-56 h-56 rounded-full bg-yellow border-2 border-ink shadow-pop opacity-80 animate-blob" style={{ animationDelay: "-12s" }} />
+      {/* Halftone dots overlay */}
+      <div aria-hidden className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
           {stats.map((s, i) => (
             <Reveal key={s.k} delay={i * 100}>
