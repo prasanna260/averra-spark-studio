@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import boyMascot from "@/assets/boy-mascot.png";
 import tvMascot from "@/assets/tv-mascot.png";
 
-const ROTATING = ["#JustViral", "#JustAverra", "#JustBuilt", "#JustScale"];
+const ROTATING = [
+  "#Juststopthescroll",
+  "#JustSeen",
+  "#JustEverywhere",
+  "#JustRelevant",
+  "#JustOwnit",
+  "#JustAverra",
+];
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
@@ -20,7 +27,7 @@ export function Hero() {
       <img
         src={boyMascot}
         alt="Averra mascot superhero boy"
-        className="hidden md:block absolute left-2 lg:left-6 top-32 lg:top-40 w-40 lg:w-56 xl:w-64 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
+        className="hidden md:block absolute left-12 lg:left-24 xl:left-32 top-32 lg:top-40 w-40 lg:w-56 xl:w-64 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
         style={{ ["--r" as never]: "-6deg" }}
       />
       <img
@@ -37,9 +44,9 @@ export function Hero() {
         </div>
 
         <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.9] tracking-[-0.03em] text-cream text-balance">
-          Get Seen.
+          Enter Feed.
           <br />
-          Get Loud.
+          Never Leave.
           <br />
           <span key={idx} className="inline-block text-yellow animate-[reveal-up_0.6s_ease-out]">
             {ROTATING[idx]}

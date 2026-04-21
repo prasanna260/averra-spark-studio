@@ -43,9 +43,13 @@ export function CTA() {
         </Reveal>
         <Reveal delay={500}>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-            <a href="mailto:averracreations@gmail.com" className="btn-pop bg-yellow text-ink text-base">
+            <a
+              href="https://calendly.com/averracreations/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pop bg-yellow text-ink text-base"
+            >
               Book a slot
-              <span className="text-xl">→</span>
             </a>
             <a
               href="https://wa.me/message/JA3H2OYCSBSSL1"

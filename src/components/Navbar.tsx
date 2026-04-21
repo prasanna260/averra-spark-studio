@@ -31,7 +31,7 @@ export function Navbar() {
             <img
               src={logo}
               alt="AverraCreations logo"
-              className="h-14 w-14 object-contain transition-transform group-hover:-rotate-6"
+              className="h-14 w-14 object-contain animate-logo-spin group-hover:[animation-play-state:paused] group-hover:scale-110 transition-transform"
             />
             <span className="font-display text-xl tracking-tight">
               Averra<span className="text-crimson">.</span>
