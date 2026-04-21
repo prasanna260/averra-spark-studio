@@ -6,10 +6,10 @@ const steps = [
     title: "Discover",
     desc: "Audit, listen, dig. We get inside your category before we touch a pixel.",
     bg: "text-ink",
-    bgStyle: { backgroundColor: "#F2DCB7" },
+    bgStyle: { backgroundColor: "#1FB8DD" },
     icon: "🔍",
     accent: "text-cream",
-    accentStyle: { backgroundColor: "#A4362A" },
+    accentStyle: { backgroundColor: "#CF0A2C" },
     pow: "ZAP!",
   },
   {
@@ -17,32 +17,32 @@ const steps = [
     title: "Create",
     desc: "Strategy meets craft. Brand, story, content, code, built in tandem.",
     bg: "text-cream",
-    bgStyle: { backgroundColor: "#A4362A" },
+    bgStyle: { backgroundColor: "#F5002A" },
     icon: "✏️",
     accent: "text-ink",
-    accentStyle: { backgroundColor: "#F2DCB7" },
+    accentStyle: { backgroundColor: "#ECF20B" },
     pow: "BAM!",
   },
   {
     n: "03",
     title: "Launch",
     desc: "Coordinated rollout across paid, organic, and earned. Built for momentum.",
-    bg: "text-cream",
-    bgStyle: { backgroundColor: "#D76A4B" },
+    bg: "text-ink",
+    bgStyle: { backgroundColor: "#ECF20B" },
     icon: "🚀",
     accent: "text-cream",
-    accentStyle: { backgroundColor: "#A4362A" },
+    accentStyle: { backgroundColor: "#009247" },
     pow: "BOOM!",
   },
   {
     n: "04",
     title: "Scale",
     desc: "Test, learn, double down. Continuous optimization for compounding returns.",
-    bg: "text-ink",
-    bgStyle: { backgroundColor: "#F2DCB7" },
+    bg: "text-cream",
+    bgStyle: { backgroundColor: "#009247" },
     icon: "📈",
-    accent: "text-cream",
-    accentStyle: { backgroundColor: "#D76A4B" },
+    accent: "text-ink",
+    accentStyle: { backgroundColor: "#1FB8DD" },
     pow: "POW!",
   },
 ];
@@ -52,7 +52,7 @@ export function Process() {
     <section
       id="process"
       className="relative py-24 md:py-32 border-y-2 border-ink overflow-hidden"
-      style={{ backgroundColor: "#F2DCB7" }}
+      style={{ backgroundColor: "#EFE8D6" }}
     >
       {/* halftone backdrop */}
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-25 pointer-events-none" />
@@ -82,7 +82,7 @@ export function Process() {
           <div className="mb-20 text-center max-w-3xl mx-auto">
             <p
               className="text-xs uppercase tracking-[0.3em] font-black mb-4"
-              style={{ color: "#A4362A" }}
+              style={{ color: "#CF0A2C" }}
             >
               ✦ Our process ✦
             </p>
@@ -91,7 +91,7 @@ export function Process() {
               <br />
               <span
                 className="text-cream px-4 inline-block border-2 border-ink -rotate-1 shadow-pop mt-3"
-                style={{ backgroundColor: "#A4362A" }}
+                style={{ backgroundColor: "#F5002A" }}
               >
                 Infinite outcomes.
               </span>
