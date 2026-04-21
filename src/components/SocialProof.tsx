@@ -38,7 +38,7 @@ export function SocialProof() {
             <span aria-hidden className="absolute -top-4 left-10 w-24 h-6 bg-cream/90 border-2 border-ink rotate-[-6deg] shadow-pop" />
             <span aria-hidden className="absolute -top-4 right-10 w-24 h-6 bg-cream/90 border-2 border-ink rotate-[5deg] shadow-pop" />
 
-            <div className="card-pop rounded-3xl wip-wallpaper p-2">
+            <div className="relative card-pop rounded-3xl brick-wallpaper p-2 overflow-hidden">
               <div className="rounded-2xl bg-cream border-2 border-ink p-10 md:p-14 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson text-cream border-2 border-ink text-xs font-black uppercase tracking-widest mb-6 shadow-pop">
                   <span className="h-2 w-2 rounded-full bg-yellow animate-pulse" />

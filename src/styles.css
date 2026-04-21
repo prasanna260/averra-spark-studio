@@ -213,13 +213,63 @@
 .animate-spin-slow { animation: spin-slow 18s linear infinite; }
 .animate-logo-spin { animation: logo-spin 4.5s ease-in-out infinite; transform-origin: center; }
 .wip-wallpaper {
-  background-color: oklch(0.93 0.2 105);
+  background-color: oklch(0.55 0.22 25);
   background-image: repeating-linear-gradient(
     45deg,
     oklch(0.18 0.04 260) 0 14px,
     oklch(0.93 0.2 105) 14px 48px
   );
   animation: wip-stripes 6s linear infinite;
+}
+/* Comic-book brick wallpaper */
+.brick-wallpaper {
+  background-color: oklch(0.55 0.22 25);
+  background-image:
+    /* mortar highlights */
+    linear-gradient(
+      transparent 0,
+      transparent 38px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 38px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 42px,
+      transparent 42px,
+      transparent 80px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 80px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 84px
+    ),
+    /* vertical mortar row 1 */
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 76px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 76px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 80px,
+      transparent 80px
+    ),
+    /* offset row 2 */
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--ink) 80%, transparent) 0,
+      color-mix(in oklab, var(--ink) 80%, transparent) 4px,
+      transparent 4px,
+      transparent 40px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 40px,
+      color-mix(in oklab, var(--ink) 80%, transparent) 44px,
+      transparent 44px
+    );
+  background-size: 160px 84px, 160px 42px, 160px 42px;
+  background-position: 0 0, 0 0, 0 42px;
+  background-repeat: repeat;
+}
+.brick-wallpaper::after {
+  /* halftone overlay for comic feel */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(color-mix(in oklab, var(--ink) 35%, transparent) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: inherit;
 }
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
