@@ -33,9 +33,9 @@ export function Footer() {
           <div className="md:col-span-2">
             <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Connect</h4>
             <ul className="space-y-3 text-sm font-bold">
-              <li><a href="#" className="hover:text-yellow transition-colors">Instagram</a></li>
-              <li><a href="#" className="hover:text-yellow transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-yellow transition-colors">YouTube</a></li>
+              <li><a href="https://www.instagram.com/averracreations" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">Instagram</a></li>
+              <li><a href="https://wa.me/message/JA3H2OYCSBSSL1" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">WhatsApp</a></li>
+              <li><a href="https://www.youtube.com/channel/UC_3U_EJEYgEq2I7JxTvk6gg" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">YouTube</a></li>
             </ul>
           </div>
 
