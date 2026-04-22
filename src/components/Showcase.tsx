@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import branding from "@/assets/work-branding.jpg";
 import social from "@/assets/work-social.jpg";
@@ -29,9 +30,9 @@ export function Showcase() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <a href="#contact" className="btn-pop bg-yellow text-ink text-sm">
+            <Link to="/portfolio" className="btn-pop bg-yellow text-ink text-sm">
               See full portfolio →
-            </a>
+            </Link>
           </Reveal>
         </div>
       </div>
