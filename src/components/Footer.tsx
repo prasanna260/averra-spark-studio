@@ -86,10 +86,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8">
-          <div className="flex items-center gap-2 text-xs text-cream/60 font-medium">
-            <span className="h-2 w-2 rounded-full bg-emerald animate-pulse" />
-            Currently accepting Q1 partnerships
-          </div>
+          <p className="text-xs text-cream/60 font-medium">
+            © {new Date().getFullYear()} AverraCreations. Made loud, made bold.
+          </p>
           <div className="flex items-center gap-2 text-xs text-cream/60 font-medium">
             <span className="h-2 w-2 rounded-full bg-emerald animate-pulse" />
             Currently accepting Q1 partnerships
