@@ -9,19 +9,32 @@ const groups = [
   { title: "Businesses", desc: "From growth sprints to full systems · we help you move faster.", icon: "♥", bg: "bg-cream text-ink" },
 ];
 
+// Soft, painterly clouds (no hard outline / sticker shadow)
+const cloudClass = "absolute pointer-events-none select-none opacity-90 animate-float-y";
+
 export function Clients() {
   return (
     <section className="relative py-24 md:py-32 bg-cyan border-b-2 border-ink overflow-hidden">
-      {/* Decorative comic clouds */}
+      {/* Soft cloud cluster — left side, behind the mascot */}
       <img
         src={cloud}
         alt=""
         aria-hidden="true"
         loading="lazy"
-        width={220}
-        height={220}
-        className="hidden md:block absolute left-4 lg:left-12 top-16 w-32 lg:w-44 opacity-95 animate-float-y pointer-events-none select-none drop-shadow-[4px_4px_0_var(--ink)]"
+        width={260}
+        height={260}
+        className={`${cloudClass} hidden md:block left-2 lg:left-10 top-12 w-40 lg:w-56`}
         style={{ ["--r" as never]: "-4deg" }}
+      />
+      <img
+        src={cloud}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={200}
+        height={200}
+        className={`${cloudClass} hidden md:block left-32 lg:left-56 top-40 w-28 lg:w-40`}
+        style={{ ["--r" as never]: "5deg", animationDelay: "0.6s" }}
       />
       <img
         src={cloud}
@@ -30,8 +43,8 @@ export function Clients() {
         loading="lazy"
         width={180}
         height={180}
-        className="hidden md:block absolute right-8 top-32 w-24 lg:w-32 opacity-90 animate-float-y pointer-events-none select-none drop-shadow-[4px_4px_0_var(--ink)]"
-        style={{ ["--r" as never]: "6deg", animationDelay: "1.4s" }}
+        className={`${cloudClass} hidden md:block left-4 lg:left-20 bottom-24 w-28 lg:w-36`}
+        style={{ ["--r" as never]: "-8deg", animationDelay: "1.1s" }}
       />
       <img
         src={cloud}
@@ -40,19 +53,41 @@ export function Clients() {
         loading="lazy"
         width={160}
         height={160}
-        className="hidden lg:block absolute right-1/4 bottom-10 w-20 opacity-80 animate-float-y pointer-events-none select-none drop-shadow-[4px_4px_0_var(--ink)]"
-        style={{ ["--r" as never]: "-8deg", animationDelay: "0.6s" }}
+        className={`${cloudClass} hidden lg:block left-72 top-72 w-24`}
+        style={{ ["--r" as never]: "3deg", animationDelay: "1.6s" }}
       />
 
-      {/* Flying superboy mascot */}
+      {/* Right-side decorative clouds */}
+      <img
+        src={cloud}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={200}
+        height={200}
+        className={`${cloudClass} hidden md:block right-8 top-20 w-28 lg:w-36`}
+        style={{ ["--r" as never]: "6deg", animationDelay: "0.9s" }}
+      />
+      <img
+        src={cloud}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={160}
+        height={160}
+        className={`${cloudClass} hidden lg:block right-1/3 bottom-12 w-20`}
+        style={{ ["--r" as never]: "-6deg", animationDelay: "0.3s" }}
+      />
+
+      {/* Flying superboy mascot — left side, nestled in the clouds */}
       <img
         src={superboy}
         alt="Averra superboy mascot flying"
         loading="lazy"
-        width={320}
-        height={480}
-        className="hidden md:block absolute -right-6 lg:right-4 bottom-4 lg:bottom-10 w-44 lg:w-60 xl:w-72 z-20 animate-float-y pointer-events-none select-none drop-shadow-[6px_6px_0_var(--ink)]"
-        style={{ ["--r" as never]: "8deg", animationDelay: "0.8s" }}
+        width={360}
+        height={520}
+        className="hidden md:block absolute -left-4 lg:left-10 top-24 lg:top-28 w-44 lg:w-60 xl:w-72 z-20 animate-float-y pointer-events-none select-none"
+        style={{ ["--r" as never]: "-6deg", animationDelay: "0.4s" }}
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
