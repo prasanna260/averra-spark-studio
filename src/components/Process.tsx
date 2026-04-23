@@ -5,44 +5,36 @@ const steps = [
     n: "01",
     title: "Discover",
     desc: "Audit, listen, dig. We get inside your category before we touch a pixel.",
-    bg: "text-ink",
-    bgStyle: { backgroundColor: "#1FB8DD" },
+    bg: "bg-cyan text-ink",
     icon: "🔍",
-    accent: "text-cream",
-    accentStyle: { backgroundColor: "#CF0A2C" },
+    accent: "bg-crimson text-cream",
     pow: "ZAP!",
   },
   {
     n: "02",
     title: "Create",
     desc: "Strategy meets craft. Brand, story, content, code, built in tandem.",
-    bg: "text-cream",
-    bgStyle: { backgroundColor: "#F5002A" },
+    bg: "bg-crimson text-cream",
     icon: "✏️",
-    accent: "text-ink",
-    accentStyle: { backgroundColor: "#ECF20B" },
+    accent: "bg-yellow text-ink",
     pow: "BAM!",
   },
   {
     n: "03",
     title: "Launch",
     desc: "Coordinated rollout across paid, organic, and earned. Built for momentum.",
-    bg: "text-ink",
-    bgStyle: { backgroundColor: "#ECF20B" },
+    bg: "bg-yellow text-ink",
     icon: "🚀",
-    accent: "text-cream",
-    accentStyle: { backgroundColor: "#009247" },
+    accent: "bg-emerald text-cream",
     pow: "BOOM!",
   },
   {
     n: "04",
     title: "Scale",
     desc: "Test, learn, double down. Continuous optimization for compounding returns.",
-    bg: "text-cream",
-    bgStyle: { backgroundColor: "#009247" },
+    bg: "bg-emerald text-cream",
     icon: "📈",
-    accent: "text-ink",
-    accentStyle: { backgroundColor: "#1FB8DD" },
+    accent: "bg-cyan text-ink",
     pow: "POW!",
   },
 ];
@@ -51,8 +43,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="relative py-24 md:py-32 border-y-2 border-ink overflow-hidden"
-      style={{ backgroundColor: "#EFE8D6" }}
+      className="relative py-24 md:py-32 bg-cream border-y-2 border-ink overflow-hidden"
     >
       {/* halftone backdrop */}
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-25 pointer-events-none" />
@@ -68,31 +59,24 @@ export function Process() {
       {/* floating decor blobs */}
       <div
         aria-hidden
-        className="hidden md:block absolute -top-16 -left-10 h-56 w-56 rounded-full blur-2xl animate-blob"
-        style={{ backgroundColor: "rgba(164, 54, 41, 0.3)" }}
+        className="hidden md:block absolute -top-16 -left-10 h-56 w-56 rounded-full bg-crimson/30 blur-2xl animate-blob"
       />
       <div
         aria-hidden
-        className="hidden md:block absolute -bottom-20 -right-10 h-72 w-72 rounded-full blur-3xl animate-blob"
-        style={{ backgroundColor: "rgba(215, 106, 75, 0.4)", animationDelay: "-6s" }}
+        className="hidden md:block absolute -bottom-20 -right-10 h-72 w-72 rounded-full bg-cyan/40 blur-3xl animate-blob"
+        style={{ animationDelay: "-6s" }}
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
           <div className="mb-20 text-center max-w-3xl mx-auto">
-            <p
-              className="text-xs uppercase tracking-[0.3em] font-black mb-4"
-              style={{ color: "#CF0A2C" }}
-            >
+            <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
               ✦ Our process ✦
             </p>
             <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
               Four moves.
               <br />
-              <span
-                className="text-cream px-4 inline-block border-2 border-ink -rotate-1 shadow-pop mt-3"
-                style={{ backgroundColor: "#F5002A" }}
-              >
+              <span className="bg-crimson text-cream px-4 inline-block border-2 border-ink -rotate-1 shadow-pop mt-3">
                 Infinite outcomes.
               </span>
             </h2>
@@ -121,12 +105,10 @@ export function Process() {
                   className={`card-pop rounded-3xl p-7 h-full ${s.bg} relative ${
                     i % 2 === 0 ? "lg:translate-y-0" : "lg:translate-y-10"
                   }`}
-                  style={s.bgStyle}
                 >
                   {/* numbered badge */}
                   <div
                     className={`absolute -top-6 -left-3 h-16 w-16 rounded-full border-2 border-ink shadow-pop flex items-center justify-center font-display text-2xl ${s.accent} rotate-[-6deg]`}
-                    style={s.accentStyle}
                   >
                     {s.n}
                   </div>

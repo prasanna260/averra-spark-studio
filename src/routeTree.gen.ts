@@ -9,42 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
-import { Route as ProductionAdShootRouteImport } from './routes/production-ad-shoot'
 import { Route as PoliciesRouteImport } from './routes/policies'
-import { Route as ContentCreationRouteImport } from './routes/content-creation'
-import { Route as BrandingRouteImport } from './routes/branding'
-import { Route as Averra360RouteImport } from './routes/averra-360'
 import { Route as IndexRouteImport } from './routes/index'
 
-const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
-  id: '/social-media-marketing',
-  path: '/social-media-marketing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductionAdShootRoute = ProductionAdShootRouteImport.update({
-  id: '/production-ad-shoot',
-  path: '/production-ad-shoot',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PoliciesRoute = PoliciesRouteImport.update({
   id: '/policies',
   path: '/policies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContentCreationRoute = ContentCreationRouteImport.update({
-  id: '/content-creation',
-  path: '/content-creation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrandingRoute = BrandingRouteImport.update({
-  id: '/branding',
-  path: '/branding',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Averra360Route = Averra360RouteImport.update({
-  id: '/averra-360',
-  path: '/averra-360',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -55,114 +25,37 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/averra-360': typeof Averra360Route
-  '/branding': typeof BrandingRoute
-  '/content-creation': typeof ContentCreationRoute
   '/policies': typeof PoliciesRoute
-  '/production-ad-shoot': typeof ProductionAdShootRoute
-  '/social-media-marketing': typeof SocialMediaMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/averra-360': typeof Averra360Route
-  '/branding': typeof BrandingRoute
-  '/content-creation': typeof ContentCreationRoute
   '/policies': typeof PoliciesRoute
-  '/production-ad-shoot': typeof ProductionAdShootRoute
-  '/social-media-marketing': typeof SocialMediaMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/averra-360': typeof Averra360Route
-  '/branding': typeof BrandingRoute
-  '/content-creation': typeof ContentCreationRoute
   '/policies': typeof PoliciesRoute
-  '/production-ad-shoot': typeof ProductionAdShootRoute
-  '/social-media-marketing': typeof SocialMediaMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/averra-360'
-    | '/branding'
-    | '/content-creation'
-    | '/policies'
-    | '/production-ad-shoot'
-    | '/social-media-marketing'
+  fullPaths: '/' | '/policies'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/averra-360'
-    | '/branding'
-    | '/content-creation'
-    | '/policies'
-    | '/production-ad-shoot'
-    | '/social-media-marketing'
-  id:
-    | '__root__'
-    | '/'
-    | '/averra-360'
-    | '/branding'
-    | '/content-creation'
-    | '/policies'
-    | '/production-ad-shoot'
-    | '/social-media-marketing'
+  to: '/' | '/policies'
+  id: '__root__' | '/' | '/policies'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Averra360Route: typeof Averra360Route
-  BrandingRoute: typeof BrandingRoute
-  ContentCreationRoute: typeof ContentCreationRoute
   PoliciesRoute: typeof PoliciesRoute
-  ProductionAdShootRoute: typeof ProductionAdShootRoute
-  SocialMediaMarketingRoute: typeof SocialMediaMarketingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/social-media-marketing': {
-      id: '/social-media-marketing'
-      path: '/social-media-marketing'
-      fullPath: '/social-media-marketing'
-      preLoaderRoute: typeof SocialMediaMarketingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/production-ad-shoot': {
-      id: '/production-ad-shoot'
-      path: '/production-ad-shoot'
-      fullPath: '/production-ad-shoot'
-      preLoaderRoute: typeof ProductionAdShootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/policies': {
       id: '/policies'
       path: '/policies'
       fullPath: '/policies'
       preLoaderRoute: typeof PoliciesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/content-creation': {
-      id: '/content-creation'
-      path: '/content-creation'
-      fullPath: '/content-creation'
-      preLoaderRoute: typeof ContentCreationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/branding': {
-      id: '/branding'
-      path: '/branding'
-      fullPath: '/branding'
-      preLoaderRoute: typeof BrandingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/averra-360': {
-      id: '/averra-360'
-      path: '/averra-360'
-      fullPath: '/averra-360'
-      preLoaderRoute: typeof Averra360RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -177,12 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Averra360Route: Averra360Route,
-  BrandingRoute: BrandingRoute,
-  ContentCreationRoute: ContentCreationRoute,
   PoliciesRoute: PoliciesRoute,
-  ProductionAdShootRoute: ProductionAdShootRoute,
-  SocialMediaMarketingRoute: SocialMediaMarketingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
