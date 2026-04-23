@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import superboy from "@/assets/superboy-flying.png";
+import cloud from "@/assets/cloud-sticker.png";
 
 const groups = [
   { title: "Creators", desc: "From 10K to 10M · we engineer growth loops, not luck.", icon: "♠", bg: "bg-crimson text-cream" },
@@ -11,7 +12,7 @@ const groups = [
 export function Clients() {
   return (
     <section className="relative py-24 md:py-32 bg-cyan border-b-2 border-ink overflow-hidden">
-      {/* Soft organic clouds - blurred, non-sticker */}
+      {/* Soft organic clouds - blurred backdrop */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-10 left-[6%] w-72 h-40 bg-cream/70 rounded-full blur-2xl" />
         <div className="absolute top-24 left-[2%] w-96 h-48 bg-white/60 rounded-full blur-3xl" />
@@ -19,6 +20,16 @@ export function Clients() {
         <div className="absolute bottom-10 left-[4%] w-[28rem] h-52 bg-white/55 rounded-full blur-3xl" />
         <div className="absolute top-[20%] left-[22%] w-56 h-32 bg-white/50 rounded-full blur-2xl" />
         <div className="absolute bottom-[28%] left-[20%] w-64 h-36 bg-cream/55 rounded-full blur-3xl" />
+      </div>
+
+      {/* Comic-style cloud stickers around the superboy */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+        <img src={cloud} alt="" className="absolute top-[6%] left-[1%] w-40 xl:w-52 drop-shadow-[4px_4px_0_var(--ink)] animate-float-y" style={{ animationDelay: "0s" }} />
+        <img src={cloud} alt="" className="absolute top-[18%] left-[18%] w-28 xl:w-36 drop-shadow-[3px_3px_0_var(--ink)] animate-float-y" style={{ animationDelay: "0.8s" }} />
+        <img src={cloud} alt="" className="absolute top-[44%] left-[20%] w-32 xl:w-40 drop-shadow-[4px_4px_0_var(--ink)] animate-float-y" style={{ animationDelay: "1.6s" }} />
+        <img src={cloud} alt="" className="absolute bottom-[18%] left-[2%] w-44 xl:w-56 drop-shadow-[5px_5px_0_var(--ink)] animate-float-y" style={{ animationDelay: "0.4s" }} />
+        <img src={cloud} alt="" className="absolute bottom-[6%] left-[16%] w-32 xl:w-40 drop-shadow-[3px_3px_0_var(--ink)] animate-float-y" style={{ animationDelay: "1.2s" }} />
+        <img src={cloud} alt="" className="absolute top-[8%] left-[24%] w-24 xl:w-32 drop-shadow-[3px_3px_0_var(--ink)] animate-float-y" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Flying superboy mascot */}
