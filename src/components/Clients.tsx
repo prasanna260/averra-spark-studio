@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import superboy from "@/assets/superboy-flying.png";
 
 const groups = [
   { title: "Creators", desc: "From 10K to 10M · we engineer growth loops, not luck.", icon: "♠", bg: "bg-crimson text-cream" },
@@ -9,8 +10,26 @@ const groups = [
 
 export function Clients() {
   return (
-    <section className="relative py-24 md:py-32 bg-cyan border-b-2 border-ink">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section className="relative py-24 md:py-32 bg-cyan border-b-2 border-ink overflow-hidden">
+      {/* Soft organic clouds - blurred, non-sticker */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-10 left-[6%] w-72 h-40 bg-cream/70 rounded-full blur-2xl" />
+        <div className="absolute top-24 left-[2%] w-96 h-48 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute top-[38%] left-[14%] w-80 h-44 bg-cream/60 rounded-full blur-2xl" />
+        <div className="absolute bottom-10 left-[4%] w-[28rem] h-52 bg-white/55 rounded-full blur-3xl" />
+        <div className="absolute top-[20%] left-[22%] w-56 h-32 bg-white/50 rounded-full blur-2xl" />
+        <div className="absolute bottom-[28%] left-[20%] w-64 h-36 bg-cream/55 rounded-full blur-3xl" />
+      </div>
+
+      {/* Flying superboy mascot */}
+      <img
+        src={superboy}
+        alt="Averra superhero boy flying through clouds"
+        className="hidden lg:block absolute left-4 xl:left-12 top-1/2 -translate-y-1/2 w-56 xl:w-72 z-10 animate-float-y drop-shadow-[6px_6px_0_var(--ink)]"
+        style={{ ["--r" as never]: "-4deg" }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-[0.3em] text-ink font-black mb-4">
