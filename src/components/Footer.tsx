@@ -14,7 +14,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid md:grid-cols-12 gap-10 pb-14 border-b-2 border-cream/20">
           <div className="md:col-span-5">
-            <a href="#top" className="flex items-center gap-2 mb-6 group w-fit">
+            <Link to="/" className="flex items-center gap-2 mb-6 group w-fit">
               <img
                 src={logo}
                 alt="AverraCreations logo"
@@ -23,7 +23,7 @@ export function Footer() {
               <span className="font-display text-2xl">
                 Averra<span className="text-yellow">.</span>
               </span>
-            </a>
+            </Link>
             <p className="text-cream/70 max-w-sm leading-relaxed font-medium">
               A full-stack creative studio building brands the internet can&apos;t scroll past.
             </p>

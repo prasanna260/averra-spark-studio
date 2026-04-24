@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png";
 
@@ -27,7 +28,7 @@ export function Navbar() {
             scrolled ? "bg-cream border-2 border-ink shadow-pop" : ""
           }`}
         >
-          <a href="#top" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <img
               src={logo}
               alt="AverraCreations logo"
@@ -36,7 +37,7 @@ export function Navbar() {
             <span className="font-display text-xl tracking-tight">
               Averra<span className="text-crimson">.</span>
             </span>
-          </a>
+          </Link>
 
           <ul className="hidden md:flex items-center gap-1">
             {links.map((l) => (

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import strategy from "@/assets/work-strategy.jpg";
+import webGrowth from "@/assets/work-web.jpg";
 
 export const Route = createFileRoute("/averra-360")({
   head: () => ({
@@ -20,7 +20,7 @@ function Averra360() {
       tag="360°"
       title="Averra 360°"
       subtitle="Web & Growth — complete digital solutions. Websites, SEO, performance marketing, funnels and strategy that compounds month over month."
-      heroImg={strategy}
+      heroImg={webGrowth}
       pillClass="bg-cyan text-ink"
       bgClass="bg-cyan text-ink"
       bullets={[

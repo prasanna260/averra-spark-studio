@@ -308,10 +308,6 @@
   transform: translate(-2px, -2px);
   box-shadow: 8px 8px 0 0 var(--ink);
 }
-.btn-pop:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 0 var(--ink);
-}
 
 .card-pop {
   border: 2px solid var(--ink);
