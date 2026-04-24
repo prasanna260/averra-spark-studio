@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import logoUrl from "../assets/logo.png";
 
 function NotFoundComponent() {
   return (
@@ -32,9 +33,9 @@ export const Route = createRootRoute({
       { name: "author", content: "AverraCreations" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Lovable App" },
-      { property: "og:title", content: "Lovable App" },
-      { name: "twitter:title", content: "Lovable App" },
+      { title: "AverraCreations" },
+      { property: "og:title", content: "AverraCreations" },
+      { name: "twitter:title", content: "AverraCreations" },
       { name: "description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
       { property: "og:description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
       { name: "twitter:description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
@@ -46,6 +47,8 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: logoUrl, type: "image/png" },
+      { rel: "apple-touch-icon", href: logoUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
