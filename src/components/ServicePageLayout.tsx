@@ -209,6 +209,23 @@ export function ServicePageLayout({
           className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-yellow border-2 border-ink opacity-90 hidden md:block"
         />
 
+        {/* Mascots — left & right */}
+        <img
+          src={mascotBull}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="hidden xl:block absolute left-2 2xl:left-10 bottom-10 w-[220px] 2xl:w-[280px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)]"
+        />
+        <img
+          src={mascotSuperboy}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="hidden xl:block absolute right-2 2xl:right-10 bottom-10 w-[220px] 2xl:w-[280px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)] -scale-x-100"
+          style={{ animationDelay: "-2s" }}
+        />
+
         <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
             <div className="text-center mb-10">
