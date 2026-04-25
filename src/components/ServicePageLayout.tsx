@@ -5,6 +5,8 @@ import { CursorGlow } from "./CursorGlow";
 import { StickyCTA } from "./StickyCTA";
 import { Reveal } from "./Reveal";
 import { ServiceContactForm } from "./ServiceContactForm";
+import mascotSuperboy from "@/assets/mascot-superboy-point.png";
+import mascotBull from "@/assets/mascot-bull-point.png";
 import type { ReactNode } from "react";
 
 const CONTACT_EMAIL = "Averracreations@gmail.com";
