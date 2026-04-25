@@ -28,7 +28,7 @@ export function Showcase() {
 
     let frameId = 0;
     let lastTime = 0;
-    const pixelsPerSecond = 38;
+    const pixelsPerSecond = 32;
 
     const tick = (time: number) => {
       if (lastTime === 0) {
@@ -39,12 +39,11 @@ export function Showcase() {
       lastTime = time;
 
       if (!isPaused) {
-        const loopWidth = scroller.scrollWidth / 2;
-
+        const maxScroll = scroller.scrollWidth - scroller.clientWidth;
         scroller.scrollLeft += (pixelsPerSecond * elapsed) / 1000;
 
-        if (scroller.scrollLeft >= loopWidth) {
-          scroller.scrollLeft -= loopWidth;
+        if (maxScroll > 0 && scroller.scrollLeft >= maxScroll - 1) {
+          scroller.scrollLeft = 0;
         }
       }
 
@@ -55,8 +54,6 @@ export function Showcase() {
 
     return () => window.cancelAnimationFrame(frameId);
   }, [isPaused]);
-
-  const scrollingProjects = [...projects, ...projects];
 
   return (
     <section id="work" className="relative py-24 md:py-32 bg-ink text-cream overflow-hidden border-b-2 border-ink">
@@ -90,8 +87,8 @@ export function Showcase() {
         onTouchEnd={() => setIsPaused(false)}
       >
         <div className="flex gap-6 px-5 sm:px-8 w-max">
-          {scrollingProjects.map((p, i) => (
-            <Reveal key={`${p.title}-${i}`} delay={i * 60}>
+          {projects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 60}>
               <Link
                 to={p.to}
                 className="group relative block w-[78vw] sm:w-[420px] rounded-3xl overflow-hidden bg-cream card-pop cursor-pointer transition-transform duration-300 hover:scale-[1.03] focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow"
