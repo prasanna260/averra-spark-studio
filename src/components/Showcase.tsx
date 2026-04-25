@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 import branding from "@/assets/work-branding.jpg";
 import social from "@/assets/work-social.jpg";
 import content from "@/assets/work-content.jpg";
-import strategy from "@/assets/work-strategy.jpg";
+import strategy from "@/assets/work-web-building.jpg";
 import production from "@/assets/work-production.jpg";
 
 const projects = [
