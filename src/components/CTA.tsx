@@ -1,24 +1,24 @@
 import { Reveal } from "./Reveal";
-import bull from "@/assets/bull.png";
-import eagle from "@/assets/eagle.png";
+import mascotSuperboy from "@/assets/mascot-superboy-point.png";
+import mascotBull from "@/assets/mascot-bull-point.png";
 
 export function CTA() {
   return (
     <section id="contact" className="relative py-24 md:py-40 bg-crimson text-cream overflow-hidden border-y-2 border-ink">
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-15" />
       <img
-        src={bull}
+        src={mascotBull}
         alt=""
         aria-hidden
         loading="lazy"
         className="hidden md:block absolute left-2 lg:left-10 top-1/2 -translate-y-1/2 w-[260px] lg:w-[320px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)]"
       />
       <img
-        src={eagle}
+        src={mascotSuperboy}
         alt=""
         aria-hidden
         loading="lazy"
-        className="hidden md:block absolute right-2 lg:right-10 top-1/2 -translate-y-1/2 w-[260px] lg:w-[320px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)]"
+        className="hidden md:block absolute right-2 lg:right-10 top-1/2 -translate-y-1/2 w-[260px] lg:w-[320px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)] -scale-x-100"
         style={{ animationDelay: "-2s" }}
       />
 
