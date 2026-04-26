@@ -35,6 +35,11 @@ export function ServicePageLayout({
   const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
     `Project enquiry · ${title}`,
   )}`;
+  const statCards = [
+    { label: "Service", value: tag },
+    { label: "Delivery", value: "End-to-end" },
+    { label: "Output", value: "Campaign-ready" },
+  ];
 
   return (
     <main className="relative">
@@ -57,6 +62,14 @@ export function ServicePageLayout({
           {tag}
         </div>
 
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-conic-gradient(from 0deg at 50% 50%, var(--ink) 0deg 5deg, transparent 5deg 16deg)",
+          }}
+        />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <Reveal>
             <Link
@@ -123,28 +136,90 @@ export function ServicePageLayout({
                   ))}
                 </div>
               </Reveal>
+              <Reveal delay={220}>
+                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                  {statCards.map((item) => (
+                    <div key={item.label} className="rounded-3xl border-2 border-ink bg-cream/95 p-4 shadow-pop">
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] text-ink/55">
+                        {item.label}
+                      </p>
+                      <p className="mt-3 font-display text-2xl leading-none">
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             </div>
 
             <div className="lg:col-span-5">
               <Reveal delay={240}>
-                <div className="relative">
-                  <div className="rounded-[2rem] overflow-hidden border-2 border-ink card-pop bg-cream rotate-[1deg]">
-                    <img
-                      src={heroImg}
-                      alt={title}
-                      className="w-full h-[280px] md:h-[420px] object-cover"
-                    />
+                <div className="rounded-[2rem] overflow-hidden border-2 border-ink bg-cream shadow-[10px_10px_0_0_var(--ink)]">
+                  <div className="relative">
+                    <div className="rounded-[2rem] overflow-hidden border-2 border-ink card-pop bg-cream rotate-[1deg]">
+                      <img
+                        src={heroImg}
+                        alt={title}
+                        className="w-full h-[280px] md:h-[420px] object-cover"
+                      />
+                    </div>
+                    {/* Sticker badge */}
+                    <div
+                      aria-hidden
+                      className="absolute -top-5 -right-3 md:-right-6 w-24 h-24 rounded-full bg-crimson text-cream border-2 border-ink card-pop flex items-center justify-center -rotate-12"
+                    >
+                      <span className="font-display text-sm leading-tight text-center px-2">
+                        NEW
+                        <br />
+                        DROP
+                      </span>
+                    </div>
                   </div>
-                  {/* Sticker badge */}
-                  <div
-                    aria-hidden
-                    className="absolute -top-5 -right-3 md:-right-6 w-24 h-24 rounded-full bg-crimson text-cream border-2 border-ink card-pop flex items-center justify-center -rotate-12"
-                  >
-                    <span className="font-display text-sm leading-tight text-center px-2">
-                      NEW
-                      <br />
-                      DROP
-                    </span>
+
+                  <div className="grid md:grid-cols-2">
+                    <div className="border-t-2 border-ink bg-cream p-6 md:border-r-2">
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] text-ink/55">
+                        Message
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed font-medium text-ink/80">
+                        {subtitle}
+                      </p>
+                    </div>
+                    <div className={`border-t-2 border-ink p-6 ${pillClass}`}>
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] opacity-75">
+                        Info
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed font-medium">
+                        Focused delivery across strategy, creative execution, and roll-out support.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 border-t-2 border-ink bg-ink text-cream md:grid-cols-3">
+                    <div className="border-b-2 border-cream/20 p-4 md:border-b-0 md:border-r-2">
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] text-yellow/80">
+                        Strategy
+                      </p>
+                      <p className="mt-2 text-sm font-medium text-cream/75">
+                        Clear offer framing before execution starts.
+                      </p>
+                    </div>
+                    <div className="border-b-2 border-cream/20 p-4 md:border-b-0 md:border-r-2">
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] text-yellow/80">
+                        Creative
+                      </p>
+                      <p className="mt-2 text-sm font-medium text-cream/75">
+                        Attention-first visuals built for real channels.
+                      </p>
+                    </div>
+                    <div className="p-4">
+                      <p className="text-[10px] font-black uppercase tracking-[0.28em] text-yellow/80">
+                        Rollout
+                      </p>
+                      <p className="mt-2 text-sm font-medium text-cream/75">
+                        Multi-format delivery ready to ship and scale.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -195,6 +270,82 @@ export function ServicePageLayout({
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-cream text-ink py-20 md:py-28 border-b-2 border-ink">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
+                ✦ What this service includes ✦
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance">
+                Built like a
+                <span className="ml-2 inline-block rotate-[-2deg] border-2 border-ink bg-yellow px-3 py-1 align-middle">
+                  campaign system
+                </span>
+              </h2>
+            </div>
+            <p className="max-w-md text-base md:text-lg font-medium text-ink/70 leading-relaxed">
+              Each route now reads less like a placeholder and more like a designed service deck with structure, pace, and visual hierarchy.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            {bullets.map((b, i) => (
+              <Reveal key={b.title} delay={i * 80}>
+                <div className="h-full overflow-hidden rounded-3xl border-2 border-ink bg-cream shadow-pop">
+                  <div
+                    className={`border-b-2 border-ink px-6 py-4 ${
+                      i % 4 === 0
+                        ? "bg-cyan"
+                        : i % 4 === 1
+                          ? "bg-yellow"
+                          : i % 4 === 2
+                            ? "bg-peach"
+                            : "bg-emerald text-cream"
+                    }`}
+                  >
+                    <p className="text-[10px] font-black uppercase tracking-[0.28em] opacity-70">
+                      Module {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl md:text-3xl leading-none">{b.title}</h3>
+                  </div>
+                  <div className="p-7">
+                    <p className="text-ink/80 font-medium leading-relaxed">{b.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={220}>
+            <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="rounded-[2rem] border-2 border-ink bg-ink p-8 text-cream shadow-pop">
+                <p className="text-xs uppercase tracking-[0.3em] text-yellow font-black mb-4">
+                  ✦ Route structure ✦
+                </p>
+                <h3 className="font-display text-3xl md:text-4xl tracking-tight">
+                  Brief. Build. Launch. Refine.
+                </h3>
+                <p className="mt-4 max-w-2xl text-base md:text-lg font-medium text-cream/75 leading-relaxed">
+                  A stronger service page gives the work more credibility: visual brief up top, modular capability cards in the middle, and a cleaner transition into conversion.
+                </p>
+              </div>
+              <div className="rounded-[2rem] border-2 border-ink bg-yellow p-8 text-ink shadow-pop">
+                <p className="text-xs uppercase tracking-[0.3em] font-black mb-4">
+                  Best used for
+                </p>
+                <ul className="space-y-3 text-base font-bold leading-relaxed">
+                  <li>Launch campaigns</li>
+                  <li>Service retainers</li>
+                  <li>Creative production pitches</li>
+                  <li>Growth-led brand pages</li>
+                </ul>
+              </div>
+            </div>
+          </Reveal>
           {children}
         </div>
       </section>

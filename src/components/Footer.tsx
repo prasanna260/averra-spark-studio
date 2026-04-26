@@ -7,6 +7,8 @@ const policyLinks = [
   { hash: "privacy", label: "Privacy Policy" },
   { hash: "shipping", label: "Shipping & Delivery" },
 ];
+const gmailComposeUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=averracreations@gmail.com";
 
 export function Footer() {
   return (
@@ -49,7 +51,12 @@ export function Footer() {
 
           <div className="md:col-span-3">
             <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Get in touch</h4>
-            <a href="mailto:averracreations@gmail.com" className="block text-sm font-bold hover:text-yellow transition-colors mb-2">
+            <a
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-sm font-bold hover:text-yellow transition-colors mb-2"
+            >
               averracreations@gmail.com
             </a>
             <p className="text-sm text-cream/60 font-medium">Sun · Fri · 9am to 12am</p>
