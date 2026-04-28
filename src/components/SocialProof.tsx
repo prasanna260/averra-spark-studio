@@ -9,21 +9,34 @@ const stats = [
 
 export function SocialProof() {
   return (
-    <section className="relative py-24 md:py-32 bg-cyan overflow-hidden">
+    <section className="relative overflow-hidden bg-cyan py-20 md:py-32">
       {/* Decorative comic blobs */}
-      <div aria-hidden className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-yellow border-2 border-ink shadow-pop opacity-90 animate-blob" />
-      <div aria-hidden className="absolute top-1/3 -right-20 w-80 h-80 rounded-full bg-crimson border-2 border-ink shadow-pop opacity-90 animate-blob" style={{ animationDelay: "-6s" }} />
-      <div aria-hidden className="absolute bottom-0 left-1/4 w-56 h-56 rounded-full bg-yellow border-2 border-ink shadow-pop opacity-80 animate-blob" style={{ animationDelay: "-12s" }} />
+      <div
+        aria-hidden
+        className="absolute -left-16 -top-16 hidden h-72 w-72 animate-blob rounded-full border-2 border-ink bg-yellow opacity-90 shadow-pop sm:block"
+      />
+      <div
+        aria-hidden
+        className="absolute -right-20 top-1/3 hidden h-80 w-80 animate-blob rounded-full border-2 border-ink bg-crimson opacity-90 shadow-pop sm:block"
+        style={{ animationDelay: "-6s" }}
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 left-1/4 hidden h-56 w-56 animate-blob rounded-full border-2 border-ink bg-yellow opacity-80 shadow-pop sm:block"
+        style={{ animationDelay: "-12s" }}
+      />
       {/* Halftone dots overlay */}
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="mb-16 grid gap-4 sm:grid-cols-2 lg:mb-24 lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.k} delay={i * 100}>
-              <div className={`card-pop rounded-3xl p-6 text-center ${s.bg}`}>
-                <div className="font-display text-4xl md:text-5xl">{s.v}</div>
-                <div className="mt-2 text-[11px] uppercase tracking-widest font-bold opacity-80">{s.k}</div>
+              <div className={`card-pop rounded-3xl p-5 text-center sm:p-6 ${s.bg}`}>
+                <div className="font-display text-3xl sm:text-4xl md:text-5xl">{s.v}</div>
+                <div className="mt-2 text-[10px] font-bold uppercase tracking-widest opacity-80 sm:text-[11px]">
+                  {s.k}
+                </div>
               </div>
             </Reveal>
           ))}
@@ -33,7 +46,7 @@ export function SocialProof() {
           <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
             ✦ Receipts ✦
           </p>
-          <h2 className="font-display text-5xl md:text-6xl tracking-tight text-balance max-w-3xl mb-14">
+          <h2 className="mb-12 max-w-3xl font-display text-4xl tracking-tight text-balance sm:text-5xl md:mb-14 md:text-6xl">
             Founders & operators on working with us.
           </h2>
         </Reveal>
@@ -42,23 +55,32 @@ export function SocialProof() {
         <Reveal delay={120}>
           <div className="relative mx-auto max-w-3xl">
             {/* tape strips */}
-            <span aria-hidden className="absolute -top-4 left-10 w-24 h-6 bg-cream/90 border-2 border-ink rotate-[-6deg] shadow-pop" />
-            <span aria-hidden className="absolute -top-4 right-10 w-24 h-6 bg-cream/90 border-2 border-ink rotate-[5deg] shadow-pop" />
+            <span
+              aria-hidden
+              className="absolute -top-4 left-6 h-5 w-20 rotate-[-6deg] border-2 border-ink bg-cream/90 shadow-pop sm:left-10 sm:h-6 sm:w-24"
+            />
+            <span
+              aria-hidden
+              className="absolute -top-4 right-6 h-5 w-20 rotate-[5deg] border-2 border-ink bg-cream/90 shadow-pop sm:right-10 sm:h-6 sm:w-24"
+            />
 
-            <div className="relative card-pop rounded-3xl brick-wallpaper p-2 overflow-hidden">
-              <div className="rounded-2xl bg-cream border-2 border-ink p-10 md:p-14 text-center">
+            <div className="card-pop brick-wallpaper relative overflow-hidden rounded-3xl p-2">
+              <div className="rounded-2xl border-2 border-ink bg-cream p-6 text-center sm:p-10 md:p-14">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson text-cream border-2 border-ink text-xs font-black uppercase tracking-widest mb-6 shadow-pop">
                   <span className="h-2 w-2 rounded-full bg-yellow animate-pulse" />
                   Notice
                 </div>
-                <h3 className="font-display text-5xl md:text-7xl leading-[0.9] mb-4">
+                <h3 className="mb-4 font-display text-4xl leading-[0.9] sm:text-5xl md:text-7xl">
                   Work in <span className="text-crimson">Progress</span>
                 </h3>
                 <p className="text-base md:text-lg font-bold text-ink/70 max-w-md mx-auto">
-                  🚧 Receipts loading. Founder testimonials coming soon · the studio is busy shipping.
+                  🚧 Receipts loading. Founder testimonials coming soon · the studio is busy
+                  shipping.
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-3 text-2xl">
-                  <span>🔨</span><span>⚠️</span><span>🛠️</span>
+                  <span>🔨</span>
+                  <span>⚠️</span>
+                  <span>🛠️</span>
                 </div>
               </div>
             </div>

@@ -6,7 +6,11 @@ export const Route = createFileRoute("/content-creation")({
   head: () => ({
     meta: [
       { title: "Content Creation — AverraCreations" },
-      { name: "description", content: "UGC, reels and motion content — always-on creative built to perform across feeds." },
+      {
+        name: "description",
+        content:
+          "UGC, reels and motion content — always-on creative built to perform across feeds.",
+      },
       { property: "og:title", content: "Content Creation — AverraCreations" },
       { property: "og:description", content: "UGC, reels and motion content built to perform." },
     ],
@@ -24,10 +28,22 @@ function ContentCreation() {
       pillClass="bg-yellow text-ink"
       bgClass="bg-yellow text-ink"
       bullets={[
-        { title: "UGC at Scale", body: "A vetted creator network producing native, authentic content tuned to your brand voice." },
-        { title: "Reels & Shorts", body: "Hooks, b-roll, captions and motion — engineered for retention and replays." },
-        { title: "Motion Graphics", body: "Kinetic typography, explainers and animated identity systems that punch through." },
-        { title: "Always-On Studio", body: "Monthly creative drops so your channels never go quiet." },
+        {
+          title: "UGC at Scale",
+          body: "A vetted creator network producing native, authentic content tuned to your brand voice.",
+        },
+        {
+          title: "Reels & Shorts",
+          body: "Hooks, b-roll, captions and motion — engineered for retention and replays.",
+        },
+        {
+          title: "Motion Graphics",
+          body: "Kinetic typography, explainers and animated identity systems that punch through.",
+        },
+        {
+          title: "Always-On Studio",
+          body: "Monthly creative drops so your channels never go quiet.",
+        },
       ]}
     />
   );

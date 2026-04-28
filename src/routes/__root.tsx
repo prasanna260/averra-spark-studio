@@ -36,11 +36,31 @@ export const Route = createRootRoute({
       { title: "AverraCreations" },
       { property: "og:title", content: "AverraCreations" },
       { name: "twitter:title", content: "AverraCreations" },
-      { name: "description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
-      { property: "og:description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
-      { name: "twitter:description", content: "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa9af9c7-7a54-4c87-ae6f-ca0bd24820ac/id-preview-e6cbf8bd--a87abd12-2e13-44f0-a358-a9b1fbef614c.lovable.app-1776678454526.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa9af9c7-7a54-4c87-ae6f-ca0bd24820ac/id-preview-e6cbf8bd--a87abd12-2e13-44f0-a358-a9b1fbef614c.lovable.app-1776678454526.png" },
+      {
+        name: "description",
+        content:
+          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+      },
+      {
+        property: "og:description",
+        content:
+          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa9af9c7-7a54-4c87-ae6f-ca0bd24820ac/id-preview-e6cbf8bd--a87abd12-2e13-44f0-a358-a9b1fbef614c.lovable.app-1776678454526.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa9af9c7-7a54-4c87-ae6f-ca0bd24820ac/id-preview-e6cbf8bd--a87abd12-2e13-44f0-a358-a9b1fbef614c.lovable.app-1776678454526.png",
+      },
     ],
     links: [
       {

@@ -41,42 +41,48 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-cream border-b-2 border-ink">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="services" className="relative bg-cream py-20 border-b-2 border-ink md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <Reveal>
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
                 ✦ What we do ✦
               </p>
-              <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance max-w-2xl">
+              <h2 className="font-display max-w-2xl text-4xl tracking-tight text-balance sm:text-5xl md:text-7xl">
                 One studio. <br />
-                <span className="bg-yellow px-3 inline-block border-2 border-ink -rotate-1">Every play.</span>
+                <span className="inline-block -rotate-1 border-2 border-ink bg-yellow px-2 sm:px-3">
+                  Every play.
+                </span>
               </h2>
             </div>
           </Reveal>
           <Reveal delay={200}>
-            <p className="max-w-md text-ink/80 text-lg font-medium">
-              From the first sketch to the scaled campaign, we own the whole pipeline ·
-              so you stay focused on building the business.
+            <p className="max-w-md text-base font-medium text-ink/80 sm:text-lg">
+              From the first sketch to the scaled campaign, we own the whole pipeline · so you stay
+              focused on building the business.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid gap-5 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.n} delay={i * 80}>
-              <article className={`card-pop rounded-3xl p-8 md:p-10 h-full ${s.bg}`}>
+              <article className={`card-pop h-full rounded-3xl p-6 sm:p-8 md:p-10 ${s.bg}`}>
                 <div className="flex items-start justify-between mb-8">
                   <span className="font-display text-sm tracking-widest opacity-60">{s.n}</span>
-                  <span className={`grid h-12 w-12 place-items-center rounded-full border-2 border-ink font-display text-xl ${s.pill}`}>
+                  <span
+                    className={`grid h-12 w-12 place-items-center rounded-full border-2 border-ink font-display text-xl ${s.pill}`}
+                  >
                     ✦
                   </span>
                 </div>
                 <p className="text-sm font-bold mb-2 opacity-70">{s.eyebrow}</p>
-                <h3 className="font-display text-4xl md:text-5xl mb-4 leading-none">{s.title}</h3>
+                <h3 className="mb-4 font-display text-3xl leading-none sm:text-4xl md:text-5xl">
+                  {s.title}
+                </h3>
                 <p className="text-base mb-6 max-w-md opacity-90">{s.desc}</p>
-                <ul className="grid grid-cols-2 gap-2">
+                <ul className="grid gap-2 sm:grid-cols-2">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-center gap-2 text-sm font-medium">
                       <span className="h-1.5 w-1.5 rounded-full bg-current" />

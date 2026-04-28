@@ -7,16 +7,15 @@ const policyLinks = [
   { hash: "privacy", label: "Privacy Policy" },
   { hash: "shipping", label: "Shipping & Delivery" },
 ];
-const gmailComposeUrl =
-  "https://mail.google.com/mail/?view=cm&fs=1&to=averracreations@gmail.com";
+const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=averracreations@gmail.com";
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-cream pt-20 pb-10">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid md:grid-cols-12 gap-10 pb-14 border-b-2 border-cream/20">
+    <footer className="bg-ink pb-10 pt-16 text-cream sm:pt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="grid gap-9 border-b-2 border-cream/20 pb-12 md:grid-cols-12 md:gap-10 md:pb-14">
           <div className="md:col-span-5">
-            <Link to="/" className="flex items-center gap-2 mb-6 group w-fit">
+            <Link to="/" className="mb-6 flex w-fit items-center gap-2 group">
               <img
                 src={logo}
                 alt="AverraCreations logo"
@@ -32,30 +31,75 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Studio</h4>
+            <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-yellow">
+              Studio
+            </h4>
             <ul className="space-y-3 text-sm font-bold">
-              <li><a href="#services" className="hover:text-yellow transition-colors">Services</a></li>
-              <li><a href="#work" className="hover:text-yellow transition-colors">Work</a></li>
-              <li><a href="#process" className="hover:text-yellow transition-colors">Process</a></li>
+              <li>
+                <a href="#services" className="transition-colors hover:text-yellow">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#work" className="transition-colors hover:text-yellow">
+                  Work
+                </a>
+              </li>
+              <li>
+                <a href="#process" className="transition-colors hover:text-yellow">
+                  Process
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="md:col-span-2">
-            <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Connect</h4>
+            <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-yellow">
+              Connect
+            </h4>
             <ul className="space-y-3 text-sm font-bold">
-              <li><a href="https://www.instagram.com/averracreations" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">Instagram</a></li>
-              <li><a href="https://wa.me/message/JA3H2OYCSBSSL1" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">WhatsApp</a></li>
-              <li><a href="https://www.youtube.com/channel/UC_3U_EJEYgEq2I7JxTvk6gg" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">YouTube</a></li>
+              <li>
+                <a
+                  href="https://www.instagram.com/averracreations"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow transition-colors"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/message/JA3H2OYCSBSSL1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UC_3U_EJEYgEq2I7JxTvk6gg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow transition-colors"
+                >
+                  YouTube
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">Get in touch</h4>
+            <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-yellow">
+              Get in touch
+            </h4>
             <a
               href={gmailComposeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm font-bold hover:text-yellow transition-colors mb-2"
+              className="mb-2 block break-all text-sm font-bold transition-colors hover:text-yellow"
             >
               averracreations@gmail.com
             </a>
@@ -63,7 +107,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 pb-6 grid md:grid-cols-2 gap-6 items-start border-b-2 border-cream/20">
+        <div className="grid items-start gap-6 border-b-2 border-cream/20 pb-6 pt-10 md:grid-cols-2">
           <div>
             <h4 className="text-xs uppercase tracking-widest text-yellow font-black mb-4">
               Terms & Policies
@@ -92,7 +136,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8">
+        <div className="flex flex-col items-start justify-between gap-4 pt-8 md:flex-row md:items-center">
           <p className="text-xs text-cream/60 font-medium">
             © {new Date().getFullYear()} AverraCreations. Made loud, made bold.
           </p>

@@ -14,8 +14,7 @@ export const Route = createFileRoute("/policies")({
       { property: "og:title", content: "Terms & Policies — AverraCreations" },
       {
         property: "og:description",
-        content:
-          "Read AverraCreations' refund, terms, privacy and delivery policies.",
+        content: "Read AverraCreations' refund, terms, privacy and delivery policies.",
       },
     ],
   }),
@@ -36,20 +35,44 @@ const sections = [
     id: "terms",
     title: "Terms and Conditions",
     body: [
-      { h: "Introduction", p: "These Terms and Conditions govern the use of services provided by Averra, a digital services agency based in India and operating globally. By using our services, you agree to these terms." },
-      { h: "Scope of Services", p: "Averra provides services including branding, packaging, digital marketing, social media management, website development, automation, e-commerce activation, and content creation. By engaging with our services, you agree to the scope outlined here." },
-      { h: "Payment Terms", p: "All payments must be made in advance unless otherwise agreed. Work will begin only after payment confirmation. Failure to complete payment may result in delays, suspension, or cancellation of services." },
-      { h: "Intellectual Property", p: "All deliverables remain the property of Averra until full payment is received. After full payment, ownership rights are transferred to the client as agreed. Averra may showcase completed work in its portfolio unless otherwise requested." },
-      { h: "Limitation of Liability", p: "Averra will not be held responsible for any indirect or consequential damages arising from the use of its services, including business losses, data issues, or third-party platform problems." },
+      {
+        h: "Introduction",
+        p: "These Terms and Conditions govern the use of services provided by Averra, a digital services agency based in India and operating globally. By using our services, you agree to these terms.",
+      },
+      {
+        h: "Scope of Services",
+        p: "Averra provides services including branding, packaging, digital marketing, social media management, website development, automation, e-commerce activation, and content creation. By engaging with our services, you agree to the scope outlined here.",
+      },
+      {
+        h: "Payment Terms",
+        p: "All payments must be made in advance unless otherwise agreed. Work will begin only after payment confirmation. Failure to complete payment may result in delays, suspension, or cancellation of services.",
+      },
+      {
+        h: "Intellectual Property",
+        p: "All deliverables remain the property of Averra until full payment is received. After full payment, ownership rights are transferred to the client as agreed. Averra may showcase completed work in its portfolio unless otherwise requested.",
+      },
+      {
+        h: "Limitation of Liability",
+        p: "Averra will not be held responsible for any indirect or consequential damages arising from the use of its services, including business losses, data issues, or third-party platform problems.",
+      },
     ],
   },
   {
     id: "privacy",
     title: "Privacy Policy",
     body: [
-      { h: "Data Collection", p: "Averra collects basic information such as names, contact details, and payment information for project management and service delivery. This information is collected with client consent." },
-      { h: "Data Sharing", p: "We do not share personal data with third parties except when required by law or for payment processing through secure platforms." },
-      { h: "Security", p: "Averra uses standard security measures to protect data. However, no system is completely secure, and full security cannot be guaranteed." },
+      {
+        h: "Data Collection",
+        p: "Averra collects basic information such as names, contact details, and payment information for project management and service delivery. This information is collected with client consent.",
+      },
+      {
+        h: "Data Sharing",
+        p: "We do not share personal data with third parties except when required by law or for payment processing through secure platforms.",
+      },
+      {
+        h: "Security",
+        p: "Averra uses standard security measures to protect data. However, no system is completely secure, and full security cannot be guaranteed.",
+      },
     ],
   },
   {
@@ -65,28 +88,28 @@ const sections = [
 
 function PoliciesPage() {
   return (
-    <main className="relative bg-cream min-h-screen">
+    <main className="relative min-h-screen bg-cream">
       <Navbar />
-      <section className="pt-36 pb-20 border-b-2 border-ink bg-yellow relative overflow-hidden">
+      <section className="relative overflow-hidden border-b-2 border-ink bg-yellow pb-16 pt-32 md:pb-20 md:pt-36">
         <div aria-hidden className="absolute inset-0 dotted-bg opacity-20" />
-        <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-8">
           <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
             ✦ The fine print ✦
           </p>
-          <h1 className="font-display text-5xl md:text-7xl tracking-tight text-ink">
+          <h1 className="font-display text-4xl tracking-tight text-ink sm:text-5xl md:text-7xl">
             Terms & Policies
           </h1>
-          <p className="mt-5 text-lg font-bold text-ink/70 max-w-2xl">
-            Everything you need to know about working with Averra — refunds,
-            terms, privacy, and delivery.
+          <p className="mt-5 max-w-2xl text-base font-bold text-ink/70 sm:text-lg">
+            Everything you need to know about working with Averra — refunds, terms, privacy, and
+            delivery.
           </p>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8 grid lg:grid-cols-[220px_1fr] gap-10">
+        <div className="mx-auto grid max-w-5xl gap-10 px-4 sm:px-8 lg:grid-cols-[220px_1fr]">
           {/* sticky TOC */}
-          <aside className="lg:sticky lg:top-28 self-start">
+          <aside className="self-start lg:sticky lg:top-28">
             <div className="card-pop rounded-2xl bg-cream p-5">
               <p className="text-[10px] uppercase tracking-widest text-crimson font-black mb-3">
                 Jump to
@@ -94,10 +117,7 @@ function PoliciesPage() {
               <ul className="space-y-2 text-sm font-bold">
                 {sections.map((s) => (
                   <li key={s.id}>
-                    <a
-                      href={`#${s.id}`}
-                      className="text-ink hover:text-crimson transition-colors"
-                    >
+                    <a href={`#${s.id}`} className="text-ink transition-colors hover:text-crimson">
                       {s.title}
                     </a>
                   </li>
@@ -117,23 +137,21 @@ function PoliciesPage() {
               <article
                 key={s.id}
                 id={s.id}
-                className="card-pop rounded-3xl bg-cream p-7 md:p-10 scroll-mt-28"
+                className="card-pop scroll-mt-28 rounded-3xl bg-cream p-5 sm:p-7 md:p-10"
               >
-                <h2 className="font-display text-3xl md:text-4xl mb-6 text-ink">
+                <h2 className="mb-6 font-display text-2xl text-ink sm:text-3xl md:text-4xl">
                   {s.title}
                 </h2>
-                <div className="space-y-5 text-ink/80 font-medium leading-relaxed">
+                <div className="space-y-5 font-medium leading-relaxed text-ink/80">
                   {s.body.map((item, i) =>
                     typeof item === "string" ? (
                       <p key={i}>{item}</p>
                     ) : (
                       <div key={i}>
-                        <h3 className="font-display text-lg text-ink mb-1">
-                          {item.h}
-                        </h3>
+                        <h3 className="font-display text-lg text-ink mb-1">{item.h}</h3>
                         <p>{item.p}</p>
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               </article>

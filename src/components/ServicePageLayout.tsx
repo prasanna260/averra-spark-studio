@@ -48,7 +48,7 @@ export function ServicePageLayout({
 
       {/* HERO — magazine cover layout */}
       <section
-        className={`relative ${bgClass} text-ink pt-28 pb-16 md:pt-36 md:pb-24 border-b-2 border-ink overflow-hidden`}
+        className={`relative ${bgClass} overflow-hidden border-b-2 border-ink pb-14 pt-28 text-ink sm:pb-16 md:pb-24 md:pt-36`}
       >
         <div className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
         <div
@@ -70,7 +70,7 @@ export function ServicePageLayout({
               "repeating-conic-gradient(from 0deg at 50% 50%, var(--ink) 0deg 5deg, transparent 5deg 16deg)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <Reveal>
             <Link
               to="/"
@@ -90,18 +90,18 @@ export function ServicePageLayout({
                 </span>
               </Reveal>
               <Reveal delay={120}>
-                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight text-balance mb-6 leading-[0.92]">
+                <h1 className="mb-6 font-display text-[clamp(2.75rem,13vw,8rem)] leading-[0.92] tracking-tight text-balance">
                   {title}
                 </h1>
               </Reveal>
               <Reveal delay={180}>
-                <p className="text-lg md:text-xl max-w-2xl font-medium text-ink/80">
+                <p className="max-w-2xl text-base font-medium text-ink/80 sm:text-lg md:text-xl">
                   {subtitle}
                 </p>
               </Reveal>
 
               <Reveal delay={240}>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                <div className="mt-8 flex flex-col items-stretch gap-3 min-[420px]:flex-row min-[420px]:items-center">
                   <a href="#contact" className="btn-pop bg-ink text-cream text-sm">
                     Start a project →
                   </a>
@@ -118,7 +118,7 @@ export function ServicePageLayout({
 
               {/* Stat strip */}
               <Reveal delay={320}>
-                <div className="mt-10 grid grid-cols-3 gap-3 max-w-xl">
+                <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-3">
                   {[
                     { k: "01", v: "Discovery" },
                     { k: "02", v: "Build" },
@@ -126,10 +126,10 @@ export function ServicePageLayout({
                   ].map((s) => (
                     <div
                       key={s.k}
-                      className="rounded-2xl border-2 border-ink bg-cream/80 backdrop-blur px-4 py-3"
+                      className="rounded-2xl border-2 border-ink bg-cream/80 px-4 py-3 backdrop-blur"
                     >
                       <p className="font-display text-2xl leading-none">{s.k}</p>
-                      <p className="text-[11px] font-black uppercase tracking-[0.18em] text-ink/70 mt-1">
+                      <p className="mt-1 text-[11px] font-black uppercase tracking-[0.18em] text-ink/70">
                         {s.v}
                       </p>
                     </div>
@@ -139,13 +139,14 @@ export function ServicePageLayout({
               <Reveal delay={220}>
                 <div className="mt-10 grid gap-4 sm:grid-cols-3">
                   {statCards.map((item) => (
-                    <div key={item.label} className="rounded-3xl border-2 border-ink bg-cream/95 p-4 shadow-pop">
+                    <div
+                      key={item.label}
+                      className="rounded-3xl border-2 border-ink bg-cream/95 p-4 shadow-pop"
+                    >
                       <p className="text-[10px] font-black uppercase tracking-[0.28em] text-ink/55">
                         {item.label}
                       </p>
-                      <p className="mt-3 font-display text-2xl leading-none">
-                        {item.value}
-                      </p>
+                      <p className="mt-3 font-display text-2xl leading-none">{item.value}</p>
                     </div>
                   ))}
                 </div>
@@ -154,19 +155,19 @@ export function ServicePageLayout({
 
             <div className="lg:col-span-5">
               <Reveal delay={240}>
-                <div className="rounded-[2rem] overflow-hidden border-2 border-ink bg-cream shadow-[10px_10px_0_0_var(--ink)]">
+                <div className="overflow-hidden rounded-[1.5rem] border-2 border-ink bg-cream shadow-pop sm:rounded-[2rem] lg:shadow-[10px_10px_0_0_var(--ink)]">
                   <div className="relative">
-                    <div className="rounded-[2rem] overflow-hidden border-2 border-ink card-pop bg-cream rotate-[1deg]">
+                    <div className="card-pop overflow-hidden rounded-[1.5rem] border-2 border-ink bg-cream sm:rotate-[1deg] sm:rounded-[2rem]">
                       <img
                         src={heroImg}
                         alt={title}
-                        className="w-full h-[280px] md:h-[420px] object-cover"
+                        className="h-[240px] w-full object-cover sm:h-[320px] md:h-[420px]"
                       />
                     </div>
                     {/* Sticker badge */}
                     <div
                       aria-hidden
-                      className="absolute -top-5 -right-3 md:-right-6 w-24 h-24 rounded-full bg-crimson text-cream border-2 border-ink card-pop flex items-center justify-center -rotate-12"
+                      className="card-pop absolute -right-2 -top-4 flex h-20 w-20 -rotate-12 items-center justify-center rounded-full border-2 border-ink bg-crimson text-cream sm:h-24 sm:w-24 md:-right-6 md:-top-5"
                     >
                       <span className="font-display text-sm leading-tight text-center px-2">
                         NEW
@@ -177,7 +178,7 @@ export function ServicePageLayout({
                   </div>
 
                   <div className="grid md:grid-cols-2">
-                    <div className="border-t-2 border-ink bg-cream p-6 md:border-r-2">
+                    <div className="border-t-2 border-ink bg-cream p-5 sm:p-6 md:border-r-2">
                       <p className="text-[10px] font-black uppercase tracking-[0.28em] text-ink/55">
                         Message
                       </p>
@@ -185,7 +186,7 @@ export function ServicePageLayout({
                         {subtitle}
                       </p>
                     </div>
-                    <div className={`border-t-2 border-ink p-6 ${pillClass}`}>
+                    <div className={`border-t-2 border-ink p-5 sm:p-6 ${pillClass}`}>
                       <p className="text-[10px] font-black uppercase tracking-[0.28em] opacity-75">
                         Info
                       </p>
@@ -231,14 +232,14 @@ export function ServicePageLayout({
       {/* DELIVERABLES — sticker grid */}
       <section className="bg-cream text-ink py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
         <div className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <Reveal>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
                   ✦ What you get ✦
                 </p>
-                <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance max-w-3xl">
+                <h2 className="font-display max-w-3xl text-4xl tracking-tight text-balance md:text-6xl">
                   Built bold. Shipped <span className="text-crimson">fast.</span>
                 </h2>
               </div>
@@ -258,12 +259,12 @@ export function ServicePageLayout({
               return (
                 <Reveal key={b.title} delay={i * 80}>
                   <div
-                    className={`${tone} border-2 border-ink rounded-3xl p-7 card-pop h-full ${rotate} transition-transform duration-300 hover:rotate-0 hover:-translate-y-1`}
+                    className={`${tone} ${rotate} card-pop h-full rounded-3xl border-2 border-ink p-6 transition-transform duration-300 hover:rotate-0 hover:-translate-y-1 max-md:rotate-0 sm:p-7`}
                   >
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-ink bg-cream text-ink font-black mb-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-display text-2xl md:text-3xl mb-3">{b.title}</h3>
+                    <h3 className="mb-3 font-display text-2xl md:text-3xl">{b.title}</h3>
                     <p className="font-medium leading-relaxed opacity-90">{b.body}</p>
                   </div>
                 </Reveal>
@@ -274,21 +275,22 @@ export function ServicePageLayout({
       </section>
 
       <section className="bg-cream text-ink py-20 md:py-28 border-b-2 border-ink">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
                 ✦ What this service includes ✦
               </p>
-              <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance">
+              <h2 className="font-display text-4xl tracking-tight text-balance md:text-6xl">
                 Built like a
-                <span className="ml-2 inline-block rotate-[-2deg] border-2 border-ink bg-yellow px-3 py-1 align-middle">
+                <span className="mt-2 inline-block rotate-[-2deg] border-2 border-ink bg-yellow px-3 py-1 align-middle sm:ml-2 sm:mt-0">
                   campaign system
                 </span>
               </h2>
             </div>
             <p className="max-w-md text-base md:text-lg font-medium text-ink/70 leading-relaxed">
-              Each route now reads less like a placeholder and more like a designed service deck with structure, pace, and visual hierarchy.
+              Each route now reads less like a placeholder and more like a designed service deck
+              with structure, pace, and visual hierarchy.
             </p>
           </div>
 
@@ -310,7 +312,9 @@ export function ServicePageLayout({
                     <p className="text-[10px] font-black uppercase tracking-[0.28em] opacity-70">
                       Module {String(i + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-3 font-display text-2xl md:text-3xl leading-none">{b.title}</h3>
+                    <h3 className="mt-3 font-display text-2xl leading-none md:text-3xl">
+                      {b.title}
+                    </h3>
                   </div>
                   <div className="p-7">
                     <p className="text-ink/80 font-medium leading-relaxed">{b.body}</p>
@@ -330,13 +334,12 @@ export function ServicePageLayout({
                   Brief. Build. Launch. Refine.
                 </h3>
                 <p className="mt-4 max-w-2xl text-base md:text-lg font-medium text-cream/75 leading-relaxed">
-                  A stronger service page gives the work more credibility: visual brief up top, modular capability cards in the middle, and a cleaner transition into conversion.
+                  A stronger service page gives the work more credibility: visual brief up top,
+                  modular capability cards in the middle, and a cleaner transition into conversion.
                 </p>
               </div>
               <div className="rounded-[2rem] border-2 border-ink bg-yellow p-8 text-ink shadow-pop">
-                <p className="text-xs uppercase tracking-[0.3em] font-black mb-4">
-                  Best used for
-                </p>
+                <p className="text-xs uppercase tracking-[0.3em] font-black mb-4">Best used for</p>
                 <ul className="space-y-3 text-base font-bold leading-relaxed">
                   <li>Launch campaigns</li>
                   <li>Service retainers</li>
@@ -351,7 +354,10 @@ export function ServicePageLayout({
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="bg-peach text-ink py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
+      <section
+        id="contact"
+        className="relative overflow-hidden border-b-2 border-ink bg-peach py-20 text-ink md:py-28"
+      >
         <div className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
         <div
           aria-hidden
@@ -379,14 +385,15 @@ export function ServicePageLayout({
           style={{ animationDelay: "-2s" }}
         />
 
-        <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-8">
           <Reveal>
             <div className="text-center mb-10">
               <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-3">
                 ✦ Let's talk ✦
               </p>
-              <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance">
-                Tell us about your <span className="text-crimson">{tag.toLowerCase()}</span> project.
+              <h2 className="font-display text-4xl tracking-tight text-balance md:text-6xl">
+                Tell us about your <span className="text-crimson">{tag.toLowerCase()}</span>{" "}
+                project.
               </h2>
             </div>
           </Reveal>
@@ -399,12 +406,12 @@ export function ServicePageLayout({
 
       {/* CTA */}
       <section className="bg-ink text-cream py-20 md:py-28 border-b-2 border-ink">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
+        <div className="mx-auto max-w-5xl px-4 text-center sm:px-8">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-yellow font-black mb-4">
               ✦ Prefer a quick call? ✦
             </p>
-            <h2 className="font-display text-4xl md:text-6xl tracking-tight mb-8 text-balance">
+            <h2 className="mb-8 font-display text-4xl tracking-tight text-balance md:text-6xl">
               Let's build something <span className="text-yellow">unmissable.</span>
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-3">

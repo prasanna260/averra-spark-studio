@@ -29,5 +29,9 @@ export function Reveal({
     return () => obs.disconnect();
   }, [delay]);
 
-  return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
+  return (
+    <div ref={ref} className={`reveal ${className}`}>
+      {children}
+    </div>
+  );
 }

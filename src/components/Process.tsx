@@ -43,7 +43,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="relative py-24 md:py-32 bg-cream border-y-2 border-ink overflow-hidden"
+      className="relative overflow-hidden border-y-2 border-ink bg-cream py-20 md:py-32"
     >
       {/* halftone backdrop */}
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-25 pointer-events-none" />
@@ -67,22 +67,22 @@ export function Process() {
         style={{ animationDelay: "-6s" }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <Reveal>
-          <div className="mb-20 text-center max-w-3xl mx-auto">
+          <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
             <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
               ✦ Our process ✦
             </p>
-            <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
+            <h2 className="font-display text-4xl tracking-tight text-balance sm:text-5xl md:text-7xl">
               Four moves.
               <br />
-              <span className="bg-crimson text-cream px-4 inline-block border-2 border-ink -rotate-1 shadow-pop mt-3">
+              <span className="mt-3 inline-block -rotate-1 border-2 border-ink bg-crimson px-3 text-cream shadow-pop sm:px-4">
                 Infinite outcomes.
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg font-bold text-ink/70 max-w-xl mx-auto">
-              A repeatable system, not a vibe. From the first audit to the
-              tenth optimization, here&apos;s how we ship.
+              A repeatable system, not a vibe. From the first audit to the tenth optimization,
+              here&apos;s how we ship.
             </p>
           </div>
         </Reveal>
@@ -98,17 +98,17 @@ export function Process() {
             }}
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-6">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 120}>
                 <div
-                  className={`card-pop rounded-3xl p-7 h-full ${s.bg} relative ${
+                  className={`card-pop relative h-full rounded-3xl p-6 pt-8 sm:p-7 ${s.bg} ${
                     i % 2 === 0 ? "lg:translate-y-0" : "lg:translate-y-10"
                   }`}
                 >
                   {/* numbered badge */}
                   <div
-                    className={`absolute -top-6 -left-3 h-16 w-16 rounded-full border-2 border-ink shadow-pop flex items-center justify-center font-display text-2xl ${s.accent} rotate-[-6deg]`}
+                    className={`absolute -left-2 -top-5 flex h-14 w-14 rotate-[-6deg] items-center justify-center rounded-full border-2 border-ink font-display text-xl shadow-pop sm:-left-3 sm:-top-6 sm:h-16 sm:w-16 sm:text-2xl ${s.accent}`}
                   >
                     {s.n}
                   </div>
@@ -116,13 +116,13 @@ export function Process() {
                   {/* comic POW sticker */}
                   <div
                     aria-hidden
-                    className="absolute -top-4 -right-3 font-comic text-lg px-3 py-1 bg-cream text-ink border-2 border-ink rounded-md shadow-pop rotate-[8deg]"
+                    className="absolute -right-2 -top-3 rotate-[8deg] rounded-md border-2 border-ink bg-cream px-2.5 py-1 font-comic text-base text-ink shadow-pop sm:-right-3 sm:-top-4 sm:px-3 sm:text-lg"
                   >
                     {s.pow}
                   </div>
 
-                  <div className="text-5xl mb-5 mt-3">{s.icon}</div>
-                  <h3 className="font-display text-3xl mb-3">{s.title}</h3>
+                  <div className="mb-5 mt-3 text-4xl sm:text-5xl">{s.icon}</div>
+                  <h3 className="mb-3 font-display text-2xl sm:text-3xl">{s.title}</h3>
                   <p className="text-sm leading-relaxed opacity-90">{s.desc}</p>
 
                   {/* halftone strip */}
@@ -130,8 +130,7 @@ export function Process() {
                     aria-hidden
                     className="mt-6 h-2 rounded-full opacity-30"
                     style={{
-                      backgroundImage:
-                        "radial-gradient(currentColor 1.2px, transparent 1.2px)",
+                      backgroundImage: "radial-gradient(currentColor 1.2px, transparent 1.2px)",
                       backgroundSize: "8px 8px",
                     }}
                   />

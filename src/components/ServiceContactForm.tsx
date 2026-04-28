@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 
 const CONTACT_EMAIL = "Averracreations@gmail.com";
+const GMAIL_COMPOSE_URL = "https://mail.google.com/mail/?view=cm&fs=1";
 
 type ServiceContactFormProps = {
   serviceTitle: string;
@@ -34,29 +35,40 @@ export function ServiceContactForm({ serviceTitle, pillClass }: ServiceContactFo
       return;
     }
 
-    if (trimmedName.length > 100 || trimmedEmail.length > 255 || trimmedSubject.length > 150 || trimmedMessage.length > 2000) {
+    if (
+      trimmedName.length > 100 ||
+      trimmedEmail.length > 255 ||
+      trimmedSubject.length > 150 ||
+      trimmedMessage.length > 2000
+    ) {
       setError("One of the fields is too long. Please shorten it.");
       return;
     }
 
-    const body = `Name: ${trimmedName}%0D%0AEmail: ${trimmedEmail}%0D%0AService: ${serviceTitle}%0D%0A%0D%0A${encodeURIComponent(
+    const body = [
+      `Name: ${trimmedName}`,
+      `Email: ${trimmedEmail}`,
+      `Service: ${serviceTitle}`,
+      "",
       trimmedMessage,
-    )}`;
+    ].join("\n");
 
-    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      trimmedSubject,
-    )}&body=${body}`;
+    const params = new URLSearchParams({
+      to: CONTACT_EMAIL,
+      su: trimmedSubject,
+      body,
+    });
 
-    window.location.href = href;
+    window.open(`${GMAIL_COMPOSE_URL}&${params.toString()}`, "_blank", "noopener,noreferrer");
   }
 
   const inputBase =
-    "w-full bg-cream text-ink placeholder:text-ink/45 border-2 border-ink rounded-2xl px-5 py-4 font-medium text-base focus:outline-none focus:ring-4 focus:ring-yellow transition-shadow";
+    "w-full bg-cream text-ink placeholder:text-ink/45 border-2 border-ink rounded-2xl px-4 py-3.5 sm:px-5 sm:py-4 font-medium text-base focus:outline-none focus:ring-4 focus:ring-yellow transition-shadow";
 
   return (
-    <div className="rounded-[2rem] overflow-hidden border-2 border-ink card-pop bg-cream">
+    <div className="card-pop overflow-hidden rounded-[1.5rem] border-2 border-ink bg-cream sm:rounded-[2rem]">
       {/* Header band */}
-      <div className="bg-ink text-cream px-7 md:px-10 py-8 md:py-10">
+      <div className="bg-ink px-5 py-7 text-cream sm:px-7 md:px-10 md:py-10">
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <span
             className={`rounded-full border-2 border-ink px-3 py-1.5 text-[10px] font-black uppercase tracking-wider ${pillClass}`}
@@ -67,13 +79,18 @@ export function ServiceContactForm({ serviceTitle, pillClass }: ServiceContactFo
             Replies in 1 working day
           </span>
         </div>
-        <h2 className="font-display text-3xl md:text-5xl tracking-tight leading-[0.95]">
+        <h2 className="font-display text-3xl leading-[0.95] tracking-tight sm:text-4xl md:text-5xl">
           We'd love to hear <span className="text-yellow">from you.</span>
         </h2>
         <p className="mt-4 text-sm md:text-base text-cream/75 max-w-2xl">
           Tell us about <span className="text-yellow font-bold">{serviceTitle}</span> — drop a
           message below or email us at{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="underline decoration-yellow underline-offset-4 font-bold hover:text-yellow">
+          <a
+            href={`${GMAIL_COMPOSE_URL}&to=${encodeURIComponent(CONTACT_EMAIL)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-yellow underline-offset-4 font-bold hover:text-yellow"
+          >
             {CONTACT_EMAIL}
           </a>
           . We'll get back to you right away.
@@ -81,7 +98,11 @@ export function ServiceContactForm({ serviceTitle, pillClass }: ServiceContactFo
       </div>
 
       {/* Form body */}
-      <form onSubmit={handleSubmit} noValidate className="bg-cream px-7 md:px-10 py-8 md:py-10">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="bg-cream px-5 py-7 sm:px-7 md:px-10 md:py-10"
+      >
         <div className="grid gap-4">
           <div>
             <label htmlFor="cf-name" className="sr-only">
@@ -144,7 +165,7 @@ export function ServiceContactForm({ serviceTitle, pillClass }: ServiceContactFo
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Message"
               rows={6}
-              className={`${inputBase} resize-y min-h-[160px]`}
+              className={`${inputBase} min-h-[150px] resize-y sm:min-h-[160px]`}
             />
           </div>
 
@@ -156,7 +177,7 @@ export function ServiceContactForm({ serviceTitle, pillClass }: ServiceContactFo
 
           <button
             type="submit"
-            className="mt-2 w-full bg-ink text-cream font-display text-2xl md:text-3xl tracking-[0.2em] uppercase rounded-2xl border-2 border-ink py-5 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-crimson focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow"
+            className="mt-2 w-full rounded-2xl border-2 border-ink bg-ink py-4 font-display text-xl uppercase tracking-[0.16em] text-cream transition-transform duration-200 hover:-translate-y-0.5 hover:bg-crimson focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow sm:py-5 sm:text-2xl md:text-3xl md:tracking-[0.2em]"
           >
             Send →
           </button>
