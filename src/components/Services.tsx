@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 const services = [
@@ -9,6 +10,7 @@ const services = [
     items: ["Branding", "Content strategy"],
     bg: "bg-peach",
     pill: "bg-crimson text-cream",
+    to: "/branding" as const,
   },
   {
     n: "02",
@@ -18,6 +20,7 @@ const services = [
     items: ["Instagram ads", "YouTube ads", "Google ads"],
     bg: "bg-yellow",
     pill: "bg-ink text-cream",
+    to: "/production-ad-shoot" as const,
   },
   {
     n: "03",
@@ -27,6 +30,7 @@ const services = [
     items: ["Social media management"],
     bg: "bg-emerald text-cream",
     pill: "bg-yellow text-ink",
+    to: "/social-media-marketing" as const,
   },
   {
     n: "04",
@@ -36,6 +40,7 @@ const services = [
     items: ["Ad shoots", "Photoshoots", "Content creation"],
     bg: "bg-crimson text-cream",
     pill: "bg-yellow text-ink",
+    to: "/content-creation" as const,
   },
 ];
 
@@ -68,7 +73,11 @@ export function Services() {
         <div className="grid gap-5 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.n} delay={i * 80}>
-              <article className={`card-pop h-full rounded-3xl p-6 sm:p-8 md:p-10 ${s.bg}`}>
+              <Link
+                to={s.to}
+                className={`card-pop block h-full rounded-3xl p-6 transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_var(--ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-crimson sm:p-8 md:p-10 ${s.bg}`}
+                aria-label={`Explore ${s.title}`}
+              >
                 <div className="flex items-start justify-between mb-8">
                   <span className="font-display text-sm tracking-widest opacity-60">{s.n}</span>
                   <span
@@ -90,7 +99,10 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
-              </article>
+                <span className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest">
+                  View service <span aria-hidden>→</span>
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>

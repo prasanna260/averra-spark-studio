@@ -1,19 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import { buildSeo } from "@/lib/seo";
 import content from "@/assets/work-content.jpg";
 
 export const Route = createFileRoute("/content-creation")({
   head: () => ({
-    meta: [
-      { title: "Content Creation — AverraCreations" },
-      {
-        name: "description",
-        content:
-          "UGC, reels and motion content — always-on creative built to perform across feeds.",
-      },
-      { property: "og:title", content: "Content Creation — AverraCreations" },
-      { property: "og:description", content: "UGC, reels and motion content built to perform." },
-    ],
+    ...buildSeo({
+      title: "Content Creation Agency | UGC, Reels & Motion Graphics",
+      description:
+        "AverraCreations creates UGC, reels, shorts, motion graphics and always-on social content designed for retention, testing and performance.",
+      path: "/content-creation",
+    }),
   }),
   component: ContentCreation,
 });

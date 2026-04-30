@@ -12,23 +12,16 @@ import { SocialProof } from "@/components/SocialProof";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
+import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "AverraCreations · We Build Brands People Can't Ignore" },
-      {
-        name: "description",
-        content:
-          "Premium creative agency for brands, creators & D2C. Branding, ads, content production, web & performance marketing · all under one roof.",
-      },
-      { property: "og:title", content: "AverraCreations · We Build Brands People Can't Ignore" },
-      {
-        property: "og:description",
-        content:
-          "Full-stack creative studio. Branding, campaigns, content, growth · engineered for attention.",
-      },
-    ],
+    ...buildSeo({
+      title: "AverraCreations | Branding, Social Media Marketing & Content Studio",
+      description:
+        "AverraCreations is a full-stack creative agency for branding, social media marketing, ad shoots, content creation, websites, SEO and growth campaigns.",
+      path: "/",
+    }),
   }),
   component: Index,
 });

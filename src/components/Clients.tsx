@@ -32,42 +32,54 @@ const groups = [
 export function Clients() {
   return (
     <section className="relative overflow-hidden border-b-2 border-ink bg-cyan py-20 md:py-32">
-      {/* Comic-style cloud stickers around the superboy */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+      {/* Comic-style cloud stickers */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <img
           src={cloud}
           alt=""
-          className="absolute top-[6%] left-[3%] w-36 xl:w-44 drop-shadow-[4px_4px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute top-[8%] left-[2%] w-24 animate-float-y drop-shadow-[4px_4px_0_var(--ink)] lg:w-32 xl:w-40"
           style={{ animationDelay: "0s" }}
         />
         <img
           src={cloud}
           alt=""
-          className="absolute top-[18%] left-[14%] w-24 xl:w-32 drop-shadow-[3px_3px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute top-[24%] left-[11%] w-20 animate-float-y drop-shadow-[3px_3px_0_var(--ink)] lg:w-24 xl:w-28"
           style={{ animationDelay: "0.8s" }}
         />
         <img
           src={cloud}
           alt=""
-          className="absolute top-[34%] left-[8%] w-28 xl:w-34 drop-shadow-[4px_4px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute bottom-[18%] left-[4%] w-24 animate-float-y drop-shadow-[5px_5px_0_var(--ink)] lg:w-32 xl:w-40"
           style={{ animationDelay: "1.6s" }}
         />
         <img
           src={cloud}
           alt=""
-          className="absolute top-[52%] left-[16%] w-26 xl:w-32 drop-shadow-[4px_4px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute top-[9%] right-[2%] w-24 animate-float-y drop-shadow-[4px_4px_0_var(--ink)] lg:w-32 xl:w-40"
           style={{ animationDelay: "0.4s" }}
         />
         <img
           src={cloud}
           alt=""
-          className="absolute bottom-[17%] left-[4%] w-38 xl:w-46 drop-shadow-[5px_5px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute top-[28%] right-[11%] w-20 animate-float-y drop-shadow-[3px_3px_0_var(--ink)] lg:w-24 xl:w-28"
           style={{ animationDelay: "1.2s" }}
         />
         <img
           src={cloud}
           alt=""
-          className="absolute bottom-[8%] left-[14%] w-24 xl:w-30 drop-shadow-[3px_3px_0_var(--ink)] animate-float-y"
+          loading="lazy"
+          decoding="async"
+          className="absolute bottom-[15%] right-[4%] w-24 animate-float-y drop-shadow-[5px_5px_0_var(--ink)] lg:w-32 xl:w-40"
           style={{ animationDelay: "2s" }}
         />
       </div>
@@ -76,23 +88,25 @@ export function Clients() {
       <img
         src={superboy}
         alt="Averra superhero boy flying through clouds"
+        loading="lazy"
+        decoding="async"
         className="absolute left-4 top-1/2 z-10 hidden w-48 -translate-y-1/2 animate-float-y drop-shadow-[6px_6px_0_var(--ink)] xl:left-12 xl:block xl:w-72"
         style={{ ["--r" as never]: "-4deg" }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
         <Reveal>
-          <div className="text-center mb-14">
+          <div className="mx-auto mb-12 max-w-4xl px-2 text-center md:mb-14">
             <p className="text-xs uppercase tracking-[0.3em] text-ink font-black mb-4">
               ✦ Who we work with ✦
             </p>
-            <h2 className="mx-auto max-w-3xl font-display text-4xl tracking-tight text-cream text-balance sm:text-5xl md:text-7xl">
+            <h2 className="mx-auto max-w-3xl font-display text-4xl tracking-tight text-cream text-balance sm:text-5xl md:text-6xl xl:text-7xl">
               From bedroom creators to <span className="text-yellow">boardroom brands.</span>
             </h2>
           </div>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl gap-5 px-2 md:grid-cols-2 xl:max-w-none xl:grid-cols-4">
           {groups.map((g, i) => (
             <Reveal key={g.title} delay={i * 100}>
               <div className={`card-pop h-full rounded-3xl p-6 sm:p-8 ${g.bg}`}>

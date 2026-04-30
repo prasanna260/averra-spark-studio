@@ -1,21 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import { buildSeo } from "@/lib/seo";
 import branding from "@/assets/work-branding.jpg";
 
 export const Route = createFileRoute("/branding")({
   head: () => ({
-    meta: [
-      { title: "Branding — AverraCreations" },
-      {
-        name: "description",
-        content: "Logos, identity systems, packaging and brand guidelines that look unmistakable.",
-      },
-      { property: "og:title", content: "Branding — AverraCreations" },
-      {
-        property: "og:description",
-        content: "Identity systems and packaging that look unmistakable.",
-      },
-    ],
+    ...buildSeo({
+      title: "Branding Agency | Logo Design, Identity Systems & Packaging",
+      description:
+        "Build an unmistakable brand with AverraCreations: strategy, logo design, identity systems, packaging design and practical brand guidelines.",
+      path: "/branding",
+    }),
   }),
   component: Branding,
 });

@@ -138,6 +138,7 @@ export function Showcase() {
                       src={p.img}
                       alt={p.title}
                       loading="lazy"
+                      decoding="async"
                       width={1024}
                       height={1280}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

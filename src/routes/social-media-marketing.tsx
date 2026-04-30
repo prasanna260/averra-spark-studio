@@ -1,21 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import { buildSeo } from "@/lib/seo";
 import social from "@/assets/work-social.jpg";
 
 export const Route = createFileRoute("/social-media-marketing")({
   head: () => ({
-    meta: [
-      { title: "Social Media Marketing — AverraCreations" },
-      {
-        name: "description",
-        content: "Reels, posts & paid social engineered to stop the scroll and convert.",
-      },
-      { property: "og:title", content: "Social Media Marketing — AverraCreations" },
-      {
-        property: "og:description",
-        content: "Reels, posts & paid social engineered to stop the scroll.",
-      },
-    ],
+    ...buildSeo({
+      title: "Social Media Marketing Agency | Reels, Posts & Paid Social",
+      description:
+        "Social media marketing by AverraCreations: content calendars, reels, shorts, paid social ads and community operations built to grow brands.",
+      path: "/social-media-marketing",
+    }),
   }),
   component: SocialMediaMarketing,
 });

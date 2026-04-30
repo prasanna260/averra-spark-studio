@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import logoUrl from "../assets/logo.png";
+import { SITE_NAME, SITE_URL } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -32,24 +33,32 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "AverraCreations" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: SITE_NAME },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "AverraCreations" },
-      { property: "og:title", content: "AverraCreations" },
-      { name: "twitter:title", content: "AverraCreations" },
+      { title: "AverraCreations | Creative Agency for Brands, Content & Growth" },
+      {
+        property: "og:title",
+        content: "AverraCreations | Creative Agency for Brands, Content & Growth",
+      },
+      {
+        name: "twitter:title",
+        content: "AverraCreations | Creative Agency for Brands, Content & Growth",
+      },
       {
         name: "description",
         content:
-          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+          "AverraCreations is a creative agency for branding, social media marketing, content production, ad shoots, websites, SEO and growth campaigns.",
       },
       {
         property: "og:description",
         content:
-          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+          "AverraCreations is a creative agency for branding, social media marketing, content production, ad shoots, websites, SEO and growth campaigns.",
       },
       {
         name: "twitter:description",
         content:
-          "AverraCreations is a premium digital agency website that offers comprehensive branding, marketing, and content production services.",
+          "AverraCreations is a creative agency for branding, social media marketing, content production, ad shoots, websites, SEO and growth campaigns.",
       },
       {
         property: "og:image",

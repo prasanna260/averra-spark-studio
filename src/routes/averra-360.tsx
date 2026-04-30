@@ -1,22 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import { buildSeo } from "@/lib/seo";
 import webGrowth from "@/assets/work-web.jpg";
 
 export const Route = createFileRoute("/averra-360")({
   head: () => ({
-    meta: [
-      { title: "Averra 360° · Web & Growth — AverraCreations" },
-      {
-        name: "description",
-        content:
-          "Complete digital solutions: web design, SEO, performance marketing, funnel optimization and growth strategy.",
-      },
-      { property: "og:title", content: "Averra 360° · Web & Growth" },
-      {
-        property: "og:description",
-        content: "Web design, SEO, performance marketing and growth — under one roof.",
-      },
-    ],
+    ...buildSeo({
+      title: "Averra 360 | Website Design, SEO & Performance Marketing",
+      description:
+        "Averra 360 combines website design, SEO, paid performance marketing, funnel optimization and growth strategy for brands ready to scale.",
+      path: "/averra-360",
+    }),
   }),
   component: Averra360,
 });

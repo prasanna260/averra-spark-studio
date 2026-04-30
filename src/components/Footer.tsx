@@ -7,6 +7,13 @@ const policyLinks = [
   { hash: "privacy", label: "Privacy Policy" },
   { hash: "shipping", label: "Shipping & Delivery" },
 ];
+const serviceLinks = [
+  { to: "/social-media-marketing" as const, label: "Social Media Marketing" },
+  { to: "/production-ad-shoot" as const, label: "Production Ad Shoot" },
+  { to: "/content-creation" as const, label: "Content Creation" },
+  { to: "/branding" as const, label: "Branding" },
+  { to: "/averra-360" as const, label: "Averra 360" },
+];
 const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=averracreations@gmail.com";
 
 export function Footer() {
@@ -14,11 +21,13 @@ export function Footer() {
     <footer className="bg-ink pb-10 pt-16 text-cream sm:pt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="grid gap-9 border-b-2 border-cream/20 pb-12 md:grid-cols-12 md:gap-10 md:pb-14">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Link to="/" className="mb-6 flex w-fit items-center gap-2 group">
               <img
                 src={logo}
                 alt="AverraCreations logo"
+                loading="lazy"
+                decoding="async"
                 className="h-14 w-14 object-contain transition-transform group-hover:-rotate-6"
               />
               <span className="font-display text-2xl">
@@ -30,26 +39,18 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-yellow">
-              Studio
+              Services
             </h4>
             <ul className="space-y-3 text-sm font-bold">
-              <li>
-                <a href="#services" className="transition-colors hover:text-yellow">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#work" className="transition-colors hover:text-yellow">
-                  Work
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="transition-colors hover:text-yellow">
-                  Process
-                </a>
-              </li>
+              {serviceLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="transition-colors hover:text-yellow">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

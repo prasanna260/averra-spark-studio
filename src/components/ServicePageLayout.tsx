@@ -161,6 +161,7 @@ export function ServicePageLayout({
                       <img
                         src={heroImg}
                         alt={title}
+                        decoding="async"
                         className="h-[240px] w-full object-cover sm:h-[320px] md:h-[420px]"
                       />
                     </div>
@@ -374,6 +375,7 @@ export function ServicePageLayout({
           alt=""
           aria-hidden
           loading="lazy"
+          decoding="async"
           className="hidden xl:block absolute left-2 2xl:left-10 bottom-10 w-[220px] 2xl:w-[280px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)]"
         />
         <img
@@ -381,6 +383,7 @@ export function ServicePageLayout({
           alt=""
           aria-hidden
           loading="lazy"
+          decoding="async"
           className="hidden xl:block absolute right-2 2xl:right-10 bottom-10 w-[220px] 2xl:w-[280px] animate-float-y pointer-events-none drop-shadow-[6px_6px_0_var(--ink)]"
           style={{ animationDelay: "-2s" }}
         />

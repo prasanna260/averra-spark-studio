@@ -50,7 +50,7 @@ export function Hero() {
           <br />
           <span
             key={idx}
-            className="inline-block max-w-full break-words text-yellow animate-[reveal-up_0.6s_ease-out]"
+            className="inline-block max-w-full whitespace-nowrap text-[clamp(1.2rem,4.2vw,4.5rem)] tracking-normal text-yellow animate-[reveal-up_0.6s_ease-out] md:text-[clamp(1.35rem,3vw,4.8rem)] lg:text-[clamp(2rem,4vw,6rem)]"
           >
             {ROTATING[idx]}
           </span>

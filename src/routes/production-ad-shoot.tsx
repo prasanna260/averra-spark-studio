@@ -1,19 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
+import { buildSeo } from "@/lib/seo";
 import production from "@/assets/work-production.jpg";
 
 export const Route = createFileRoute("/production-ad-shoot")({
   head: () => ({
-    meta: [
-      { title: "Production Ad Shoot — AverraCreations" },
-      {
-        name: "description",
-        content:
-          "Studio-grade ad films, brand stories and product films from concept to final cut.",
-      },
-      { property: "og:title", content: "Production Ad Shoot — AverraCreations" },
-      { property: "og:description", content: "Studio-grade ad films from concept to final cut." },
-    ],
+    ...buildSeo({
+      title: "Production Ad Shoot Studio | Brand Films & Product Videos",
+      description:
+        "Plan and produce ad shoots with AverraCreations, from concepts, scripts and storyboards to filming, editing, VFX and channel-ready video cuts.",
+      path: "/production-ad-shoot",
+    }),
   }),
   component: ProductionAdShoot,
 });

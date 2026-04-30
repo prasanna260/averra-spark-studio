@@ -1,22 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/policies")({
   head: () => ({
-    meta: [
-      { title: "Terms & Policies — AverraCreations" },
-      {
-        name: "description",
-        content:
-          "Refund & cancellation, terms and conditions, privacy policy, and shipping & delivery policy for AverraCreations.",
-      },
-      { property: "og:title", content: "Terms & Policies — AverraCreations" },
-      {
-        property: "og:description",
-        content: "Read AverraCreations' refund, terms, privacy and delivery policies.",
-      },
-    ],
+    ...buildSeo({
+      title: "Terms, Privacy, Refund & Delivery Policies | AverraCreations",
+      description:
+        "Read AverraCreations policies for refunds, cancellations, service terms, privacy, data handling, shipping and digital delivery.",
+      path: "/policies",
+    }),
   }),
   component: PoliciesPage,
 });
