@@ -43,14 +43,14 @@ export function Hero() {
           <span className="truncate">WELCOME · VANAKKAM 🙏</span>
         </div>
 
-        <h1 className="font-display text-[clamp(2.45rem,13vw,8rem)] leading-[0.9] tracking-tight text-cream text-balance">
+        <h1 className="mx-auto max-w-[14ch] font-display text-[clamp(2rem,11vw,7.5rem)] leading-[0.9] tracking-tight text-cream text-balance">
           Enter Feed.
           <br />
           Never Leave.
           <br />
           <span
             key={idx}
-            className="inline-block max-w-full whitespace-nowrap text-[clamp(1.2rem,4.2vw,4.5rem)] tracking-normal text-yellow animate-[reveal-up_0.6s_ease-out] md:text-[clamp(1.35rem,3vw,4.8rem)] lg:text-[clamp(2rem,4vw,6rem)]"
+            className="inline-block max-w-full break-words text-[clamp(1.4rem,8vw,4.75rem)] tracking-normal text-yellow animate-[reveal-up_0.6s_ease-out] sm:whitespace-nowrap"
           >
             {ROTATING[idx]}
           </span>

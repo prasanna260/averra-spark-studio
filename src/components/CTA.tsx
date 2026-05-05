@@ -11,47 +11,42 @@ export function CTA() {
       className="relative overflow-hidden border-y-2 border-ink bg-crimson py-20 text-cream md:py-32 xl:py-40"
     >
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-15" />
-      <img
-        src={mascotSuperboy}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        decoding="async"
-        className="pointer-events-none absolute left-2 top-1/2 hidden w-[220px] -translate-y-1/2 animate-float-y drop-shadow-[6px_6px_0_var(--ink)] 2xl:block"
-      />
-      <img
-        src={mascotBull}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        decoding="async"
-        className="pointer-events-none absolute right-2 top-1/2 hidden w-[220px] -translate-y-1/2 animate-float-y drop-shadow-[6px_6px_0_var(--ink)] 2xl:block"
-        style={{ animationDelay: "-2s" }}
-      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 xl:grid-cols-[180px_minmax(0,1fr)_180px] xl:gap-8 2xl:grid-cols-[220px_minmax(0,1fr)_220px] 2xl:gap-12">
+          <div className="hidden justify-center xl:flex">
+            <img
+              src={mascotSuperboy}
+              alt=""
+              aria-hidden
+              loading="lazy"
+              decoding="async"
+              className="pointer-events-none w-full max-w-[220px] animate-float-y drop-shadow-[6px_6px_0_var(--ink)] 2xl:max-w-[260px]"
+            />
+          </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-8">
-        <div className="mx-auto grid max-w-4xl gap-10">
-          <div className="text-center lg:text-left">
+          <div className="mx-auto w-full max-w-4xl text-center">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.3em] text-yellow font-black mb-6">
                 ✦ Let&apos;s build ✦
               </p>
             </Reveal>
             <Reveal delay={150}>
-              <h2 className="font-display text-[clamp(2.25rem,11vw,7.5rem)] leading-[0.9] tracking-tight text-balance">
-                Let&apos;s build something
+              <h2 className="mx-auto max-w-[12ch] font-display text-[clamp(2.25rem,9vw,7.5rem)] leading-[0.9] tracking-tight text-balance">
+                <span className="whitespace-nowrap">Let&apos;s build</span>
                 <br />
-                <span className="break-words text-yellow">#JustViral</span>
+                <span className="whitespace-nowrap">something</span>
+                <br />
+                <span className="whitespace-nowrap text-yellow">#JustViral</span>
               </h2>
             </Reveal>
             <Reveal delay={350}>
-              <p className="mx-auto mt-6 max-w-2xl text-base font-medium opacity-90 sm:mt-8 md:text-xl lg:mx-0">
+              <p className="mx-auto mt-6 max-w-2xl text-base font-medium opacity-90 sm:mt-8 md:text-xl">
                 Tell us about the brand, the dream, and the deadline. Tap through and Gmail opens
                 directly with Averra&apos;s email prefilled.
               </p>
             </Reveal>
             <Reveal delay={500}>
-              <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-3">
+              <div className="mx-auto mt-8 grid max-w-xl gap-4 sm:mt-10 sm:grid-cols-2">
                 <a
                   href="https://calendly.com/averracreations/30min"
                   target="_blank"
@@ -76,6 +71,18 @@ export function CTA() {
                 </a>
               </div>
             </Reveal>
+          </div>
+
+          <div className="hidden justify-center xl:flex">
+            <img
+              src={mascotBull}
+              alt=""
+              aria-hidden
+              loading="lazy"
+              decoding="async"
+              className="pointer-events-none w-full max-w-[220px] animate-float-y drop-shadow-[6px_6px_0_var(--ink)] 2xl:max-w-[260px]"
+              style={{ animationDelay: "-2s" }}
+            />
           </div>
         </div>
       </div>
