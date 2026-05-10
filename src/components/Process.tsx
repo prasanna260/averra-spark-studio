@@ -56,11 +56,7 @@ export function Process() {
             "repeating-conic-gradient(from 0deg at 50% 50%, var(--ink) 0deg 4deg, transparent 4deg 14deg)",
         }}
       />
-      {/* floating decor blobs */}
-      <div
-        aria-hidden
-        className="hidden md:block absolute -top-16 -left-10 h-56 w-56 rounded-full bg-crimson/30 blur-2xl animate-blob"
-      />
+      {/* floating decor blob */}
       <div
         aria-hidden
         className="hidden md:block absolute -bottom-20 -right-10 h-72 w-72 rounded-full bg-cyan/40 blur-3xl animate-blob"
