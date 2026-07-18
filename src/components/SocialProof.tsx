@@ -1,10 +1,10 @@
 import { Reveal } from "./Reveal";
 
 const stats = [
-  { v: "0", k: "Impressions delivered", bg: "bg-crimson text-cream" },
-  { v: "0", k: "Revenue influenced", bg: "bg-yellow text-ink" },
-  { v: "0", k: "Brands partnered", bg: "bg-emerald text-cream" },
-  { v: "0", k: "Client retention", bg: "bg-cream text-ink" },
+  { v: "1.5M", k: "Impressions delivered", bg: "bg-crimson text-cream" },
+  { v: "₹1.2M", k: "Revenue influenced", bg: "bg-yellow text-ink" },
+  { v: "12+", k: "Brands partnered", bg: "bg-emerald text-cream" },
+  { v: "92%", k: "Client retention", bg: "bg-cream text-ink" },
 ];
 
 export function SocialProof() {

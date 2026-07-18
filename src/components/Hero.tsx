@@ -76,8 +76,8 @@ export function Hero() {
       <div className="relative mx-auto mt-14 max-w-5xl px-4 sm:mt-20 sm:px-8">
         <div className="grid gap-3 sm:grid-cols-3">
           {[
-            { v: "0", k: "views generated", c: "bg-crimson text-cream" },
-            { v: "0", k: "brands launched", c: "bg-yellow text-ink" },
+            { v: "1.5M", k: "views generated", c: "bg-crimson text-cream" },
+            { v: "12+", k: "brands launched", c: "bg-yellow text-ink" },
             { v: "0", k: "avg. ROAS", c: "bg-emerald text-cream" },
           ].map((s) => (
             <div key={s.k} className={`card-pop rounded-2xl p-4 text-center sm:p-5 ${s.c}`}>
