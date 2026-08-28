@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
 import { buildSeo } from "@/lib/seo";
-import production from "@/assets/work-production.jpg";
+import production from "@/assets/work-production-2.png";
 
 export const Route = createFileRoute("/production-ad-shoot")({
   head: () => ({

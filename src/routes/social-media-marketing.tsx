@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
 import { buildSeo } from "@/lib/seo";
-import social from "@/assets/work-social.jpg";
+import social from "@/assets/work-social-2.png";
 
 export const Route = createFileRoute("/social-media-marketing")({
   head: () => ({

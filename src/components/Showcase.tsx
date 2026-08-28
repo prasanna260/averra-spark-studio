@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import branding from "@/assets/work-branding.jpg";
-import social from "@/assets/work-social.jpg";
-import content from "@/assets/work-content.jpg";
-import strategy from "@/assets/work-web-building.jpg";
-import production from "@/assets/work-production.jpg";
+import social from "@/assets/work-social-2.png";
+import content from "@/assets/work-content-2.png";
+import strategy from "@/assets/work-web-2.png";
+import production from "@/assets/work-production-2.png";
 
 const projects = [
   {

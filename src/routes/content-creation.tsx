@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageLayout } from "@/components/ServicePageLayout";
 import { buildSeo } from "@/lib/seo";
-import content from "@/assets/work-content.jpg";
+import content from "@/assets/work-content-2.png";
 
 export const Route = createFileRoute("/content-creation")({
   head: () => ({
