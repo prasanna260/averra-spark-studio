@@ -3,8 +3,11 @@
  *
  * Every entry points at its file in the Averra "Portfolio" Google Drive folder
  * (`driveId`). The file must be shared as "Anyone with the link can view".
- * Cards stream the Drive file straight into a muted, autoplaying <video>, and
- * fall back to the click-to-play Drive player if streaming fails.
+ * The "Build portfolio videos" GitHub workflow downloads each file listed in
+ * scripts/videos.json and commits a small web-ready copy to public/videos,
+ * which the cards autoplay muted. Long-form cards get a 30s preview loop and
+ * open the full video in the Drive player. To add a video, add it here AND
+ * to scripts/videos.json, then push.
  *
  * To serve a lighter, faster copy instead, set `src` to a direct,
  * web-optimised video URL from a video host or CDN (e.g. Cloudflare Stream /
@@ -273,8 +276,8 @@ export const longForm: PortfolioVideo[] = [
 export const driveThumbnail = (id: string, width = 800) =>
   `https://drive.google.com/thumbnail?id=${id}&sz=w${width}`;
 
-/** Direct file stream for a public Drive file, playable in a <video> tag. */
-export const driveStream = (id: string) =>
-  `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`;
+/** Web-ready copy and poster built by .github/workflows/build-videos.yml. */
+export const localVideo = (driveId: string) => `/videos/${driveId}.mp4`;
+export const localPoster = (driveId: string) => `/videos/${driveId}.jpg`;
 
 export const drivePreview = (id: string) => `https://drive.google.com/file/d/${id}/preview`;
