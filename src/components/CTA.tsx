@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 import mascotSuperboy from "@/assets/mascot-superboy-point.png";
 import mascotBull from "@/assets/mascot-bull-point.png";
 const ctaCardHover =
@@ -8,8 +9,13 @@ export function CTA() {
   return (
     <section
       id="contact"
+      data-scroll-scene
+      suppressHydrationWarning
       className="relative overflow-hidden border-y-2 border-ink bg-crimson py-20 text-cream md:py-32 xl:py-40"
     >
+      <BigWord className="bottom-4" stroke="var(--cream)" opacity={0.12}>
+        LET&apos;S TALK
+      </BigWord>
       <div aria-hidden className="absolute inset-0 dotted-bg opacity-15" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 xl:grid-cols-[180px_minmax(0,1fr)_180px] xl:gap-8 2xl:grid-cols-[220px_minmax(0,1fr)_220px] 2xl:gap-12">
@@ -30,7 +36,7 @@ export function CTA() {
                 ✦ Let&apos;s build ✦
               </p>
             </Reveal>
-            <Reveal delay={150}>
+            <Reveal delay={150} variant="mask">
               <h2 className="mx-auto max-w-[12ch] font-display text-[clamp(2.25rem,9vw,7.5rem)] leading-[0.9] tracking-tight text-balance">
                 <span className="whitespace-nowrap">Let&apos;s build</span>
                 <br />

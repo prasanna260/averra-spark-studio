@@ -12,6 +12,7 @@ import { SocialProof } from "@/components/SocialProof";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
+import { SiteRail } from "@/components/scroll/SiteRail";
 import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -42,6 +43,7 @@ function Index() {
       <CTA />
       <Footer />
       <StickyCTA />
+      <SiteRail />
     </main>
   );
 }

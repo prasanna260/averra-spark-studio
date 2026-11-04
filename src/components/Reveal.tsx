@@ -4,10 +4,13 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
+  variant = "up",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  /** "up" fades and rises; "mask" wipes a headline up from behind a mask. */
+  variant?: "up" | "mask";
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,8 +33,8 @@ export function Reveal({
   }, [delay]);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
-      {children}
+    <div ref={ref} className={`reveal ${variant === "mask" ? "reveal-mask" : ""} ${className}`}>
+      {variant === "mask" ? <div className="reveal-mask-inner">{children}</div> : children}
     </div>
   );
 }

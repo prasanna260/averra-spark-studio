@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 import superboy from "@/assets/superboy-flying.png";
 import cloud from "@/assets/cloud-sticker.png";
 
@@ -31,7 +32,15 @@ const groups = [
 
 export function Clients() {
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-cyan py-20 md:py-32">
+    <section
+      id="clients"
+      data-scroll-scene
+      suppressHydrationWarning
+      className="relative overflow-hidden border-b-2 border-ink bg-cyan py-20 md:py-32"
+    >
+      <BigWord className="top-6 md:top-10" opacity={0.12}>
+        CLIENTS
+      </BigWord>
       {/* Comic-style cloud stickers */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <img
@@ -95,7 +104,7 @@ export function Clients() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
-        <Reveal>
+        <Reveal variant="mask">
           <div className="mx-auto mb-12 max-w-4xl px-2 text-center md:mb-14">
             <p className="text-xs uppercase tracking-[0.3em] text-ink font-black mb-4">
               ✦ Who we work with ✦

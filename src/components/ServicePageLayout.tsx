@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import { CursorGlow } from "./CursorGlow";
 import { StickyCTA } from "./StickyCTA";
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 import { ServiceContactForm } from "./ServiceContactForm";
 import mascotSuperboy from "@/assets/mascot-superboy-point.png";
 import mascotBull from "@/assets/mascot-bull-point.png";
@@ -48,6 +49,8 @@ export function ServicePageLayout({
 
       {/* HERO — magazine cover layout */}
       <section
+        data-scroll-scene
+        suppressHydrationWarning
         className={`relative ${bgClass} overflow-hidden border-b-2 border-ink pb-14 pt-28 text-ink sm:pb-16 md:pb-24 md:pt-36`}
       >
         <div className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
@@ -57,7 +60,7 @@ export function ServicePageLayout({
         />
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 font-display text-[10rem] md:text-[16rem] leading-none text-ink/[0.06] select-none pointer-events-none translate-x-6 translate-y-6"
+          className="big-word absolute bottom-0 right-0 font-display text-[10rem] md:text-[16rem] leading-none text-ink/[0.06] select-none pointer-events-none translate-x-6 translate-y-6"
         >
           {tag}
         </div>
@@ -211,7 +214,14 @@ export function ServicePageLayout({
       </section>
 
       {/* DELIVERABLES — sticker grid */}
-      <section className="bg-cream text-ink py-20 md:py-28 border-b-2 border-ink relative overflow-hidden">
+      <section
+        data-scroll-scene
+        suppressHydrationWarning
+        className="bg-cream text-ink py-20 md:py-28 border-b-2 border-ink relative overflow-hidden"
+      >
+        <BigWord className="top-4" opacity={0.06}>
+          WHAT YOU GET
+        </BigWord>
         <div className="absolute inset-0 dotted-bg opacity-20 pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">

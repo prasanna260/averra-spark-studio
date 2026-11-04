@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
+import { BigWord } from "@/components/scroll/BigWord";
 import { VideoCard } from "@/components/VideoCard";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
@@ -43,12 +44,17 @@ function Work() {
       {/* SHORT FORM */}
       <section
         id="short-form"
+        data-scroll-scene
+        suppressHydrationWarning
         className="relative overflow-hidden border-b-2 border-ink bg-ink pb-20 pt-32 text-cream md:pb-28 md:pt-40"
       >
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 dotted-bg opacity-[0.07] invert"
         />
+        <BigWord className="top-24 md:top-28" stroke="var(--cream)" opacity={0.08}>
+          SHORT FORM
+        </BigWord>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <Reveal>
             <Link
@@ -128,8 +134,13 @@ function Work() {
       {/* LONG FORM */}
       <section
         id="long-form"
+        data-scroll-scene
+        suppressHydrationWarning
         className="relative overflow-hidden border-b-2 border-ink bg-ink-soft py-20 text-cream md:py-28"
       >
+        <BigWord className="top-6" stroke="var(--cream)" opacity={0.08} direction={-1}>
+          LONG FORM
+        </BigWord>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <Reveal>
             <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-yellow">
