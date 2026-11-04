@@ -1,11 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-} from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import tvMascot from "@/assets/tv-mascot.png";
 import handPoint from "@/assets/hand-point.png";
 import superboyFlying from "@/assets/superboy-flying.png";
@@ -115,90 +108,6 @@ const pop = (a: number, b: number, rot = 0): CSSProperties => ({
   transform: `rotate(${rot}deg) scale(calc(0.4 + ${seg(a, b)} * 0.6))`,
 });
 
-/* ------------------------------------------------------------------ sound */
-
-function useComicSound() {
-  const [on, setOn] = useState(false);
-  const ctxRef = useRef<AudioContext | null>(null);
-
-  useEffect(() => {
-    try {
-      if (window.localStorage.getItem("averra-sound") === "on") setOn(true);
-    } catch {
-      /* storage unavailable */
-    }
-  }, []);
-
-  const ensureCtx = () => {
-    if (!ctxRef.current) {
-      const AC =
-        window.AudioContext ||
-        (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-      if (!AC) return null;
-      ctxRef.current = new AC();
-    }
-    if (ctxRef.current.state === "suspended") void ctxRef.current.resume();
-    return ctxRef.current;
-  };
-
-  /** A short synthesized "whoosh + pop", pitched per scene. No audio files. */
-  const play = useCallback(
-    (index: number, force = false) => {
-      if (!on && !force) return;
-      const ctx = ensureCtx();
-      if (!ctx) return;
-      const t = ctx.currentTime;
-
-      // whoosh: filtered noise sweep
-      const len = Math.floor(ctx.sampleRate * 0.35);
-      const buf = ctx.createBuffer(1, len, ctx.sampleRate);
-      const data = buf.getChannelData(0);
-      for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / len);
-      const noise = ctx.createBufferSource();
-      noise.buffer = buf;
-      const bp = ctx.createBiquadFilter();
-      bp.type = "bandpass";
-      bp.Q.value = 1.2;
-      bp.frequency.setValueAtTime(400, t);
-      bp.frequency.exponentialRampToValueAtTime(3200, t + 0.3);
-      const ng = ctx.createGain();
-      ng.gain.setValueAtTime(0.0001, t);
-      ng.gain.exponentialRampToValueAtTime(0.12, t + 0.05);
-      ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
-      noise.connect(bp).connect(ng).connect(ctx.destination);
-      noise.start(t);
-
-      // pop: pitched blip
-      const base = [330, 392, 440, 523, 659][index % 5];
-      const osc = ctx.createOscillator();
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(base, t + 0.08);
-      osc.frequency.exponentialRampToValueAtTime(base * 2, t + 0.18);
-      const og = ctx.createGain();
-      og.gain.setValueAtTime(0.0001, t + 0.08);
-      og.gain.exponentialRampToValueAtTime(0.18, t + 0.1);
-      og.gain.exponentialRampToValueAtTime(0.0001, t + 0.32);
-      osc.connect(og).connect(ctx.destination);
-      osc.start(t + 0.08);
-      osc.stop(t + 0.35);
-    },
-    [on],
-  );
-
-  const toggle = () => {
-    const next = !on;
-    setOn(next);
-    try {
-      window.localStorage.setItem("averra-sound", next ? "on" : "off");
-    } catch {
-      /* storage unavailable */
-    }
-    if (next) play(2, true);
-  };
-
-  return { on, toggle, play };
-}
-
 /* ------------------------------------------------------------ the section */
 
 export function Process() {
@@ -207,9 +116,6 @@ export function Process() {
   const sceneRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
   const activeRef = useRef(0);
-  const sound = useComicSound();
-  const playRef = useRef(sound.play);
-  playRef.current = sound.play;
 
   useEffect(() => {
     let raf = 0;
@@ -232,8 +138,6 @@ export function Process() {
       if (idx !== activeRef.current) {
         activeRef.current = idx;
         setActive(idx);
-        // only make noise while the story is on screen
-        if (rect.top <= 1 && rect.bottom >= window.innerHeight - 1) playRef.current(idx);
       }
     };
     const onScroll = () => {
@@ -375,32 +279,6 @@ export function Process() {
           </div>
         ))}
 
-        {/* sound toggle */}
-        <button
-          type="button"
-          onClick={sound.toggle}
-          aria-pressed={sound.on}
-          className="absolute bottom-4 left-4 z-30 flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-xs font-bold text-ink shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5 sm:bottom-6 sm:left-6"
-        >
-          <span aria-hidden className="flex h-3 items-end gap-[2px]">
-            {[0, 1, 2, 3].map((b) => (
-              <span
-                key={b}
-                className={`w-[2px] rounded-full bg-ink ${sound.on ? "animate-[sound-bar_0.9s_ease-in-out_infinite]" : ""}`}
-                style={{
-                  height: sound.on ? "100%" : `${[40, 70, 50, 30][b]}%`,
-                  animationDelay: `${b * -0.2}s`,
-                  transformOrigin: "bottom",
-                }}
-              />
-            ))}
-          </span>
-          Sound{" "}
-          <span className={sound.on ? "text-crimson" : "text-ink/50"}>
-            {sound.on ? "on" : "off"}
-          </span>
-        </button>
-
         {/* scroll cue, only on the intro */}
         <div
           aria-hidden
@@ -418,7 +296,6 @@ export function Process() {
 
         <style>{`
           @keyframes scroll-cue { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
-          @keyframes sound-bar { 0%,100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
           @keyframes process-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -10px; } }
           @keyframes process-spin { to { rotate: 360deg; } }
           @media (prefers-reduced-motion: reduce) {
