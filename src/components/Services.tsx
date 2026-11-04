@@ -143,7 +143,7 @@ export function Services() {
                 className={`scene-anim card-pop block self-center rounded-3xl p-6 transition-shadow duration-200 hover:shadow-[10px_10px_0_0_var(--ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-crimson sm:p-8 md:p-10 ${s.bg}`}
                 style={{
                   zIndex: i + 1,
-                  transform: `translate3d(0, calc(${incoming} * 120% - ${past} * 18px), 0) scale(calc(1 - ${past} * 0.05)) rotate(calc(${incoming} * 8deg))`,
+                  transform: `translate3d(0, calc(${incoming} * 100svh - ${past} * 18px), 0) scale(calc(1 - ${past} * 0.05)) rotate(calc(${incoming} * 8deg))`,
                 }}
                 aria-label={`Explore ${s.title}`}
               >

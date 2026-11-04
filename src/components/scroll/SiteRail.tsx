@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const SECTIONS = [
+const HOME_SECTIONS = [
   { id: "top", label: "Intro" },
   { id: "services", label: "Services" },
   { id: "work", label: "Work" },
@@ -10,11 +10,15 @@ const SECTIONS = [
   { id: "contact", label: "Contact" },
 ];
 
+export type RailSection = { id: string; label: string };
+
 /**
- * Numbered chapter rail for the home page (large screens only).
- * Steps aside while the Process story is pinned, since it has its own rail.
+ * Numbered chapter rail. Defaults to the home page chapters; service pages
+ * pass their own. Steps aside while the Process story is pinned, since it has
+ * its own rail, and at the footer.
  */
-export function SiteRail() {
+export function SiteRail({ sections = HOME_SECTIONS }: { sections?: RailSection[] }) {
+  const SECTIONS = sections;
   const [active, setActive] = useState(0);
   const [hidden, setHidden] = useState(false);
   const fillRef = useRef<HTMLSpanElement>(null);
@@ -60,7 +64,7 @@ export function SiteRail() {
       window.removeEventListener("resize", schedule);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [SECTIONS]);
 
   return (
     <nav
