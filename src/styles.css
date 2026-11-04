@@ -380,7 +380,53 @@
   transform: translate3d(calc((0.5 - var(--sp, 0.5)) * var(--dir, 1) * 40%), 0, 0);
   will-change: transform;
 }
+/* Pinned scenes (src/components/scroll/Pinned.tsx) */
+.scene-stack,
+.scene-deck {
+  display: grid;
+}
+.scene-stack > *,
+.scene-deck > * {
+  grid-area: 1 / 1;
+}
+.scene-stack {
+  align-items: center;
+}
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  /* Un-pin every scene and show its content in normal flow. */
+  .pin-section {
+    height: auto !important;
+    --sp: 1 !important;
+  }
+  .pin-stage {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding-block: 4rem;
+  }
+  .scene-anim {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .scene-stack > *,
+  .scene-deck > * {
+    grid-area: auto;
+  }
+  .scene-deck {
+    gap: 1.25rem;
+  }
+  .scene-track-wrap {
+    overflow-x: auto;
+  }
   .reveal,
   .reveal.reveal-mask,
   .reveal-mask > .reveal-mask-inner {

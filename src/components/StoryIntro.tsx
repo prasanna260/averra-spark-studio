@@ -31,10 +31,10 @@ export function StoryIntro() {
     <section
       data-scroll-scene="pin"
       suppressHydrationWarning
-      className="story-intro relative border-y-2 border-ink bg-peach"
+      className="story-intro pin-section relative border-y-2 border-ink bg-peach"
       style={{ height: "230svh" } as CSSProperties}
     >
-      <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+      <div className="pin-stage sticky top-0 flex h-[100svh] items-center overflow-hidden">
         <div aria-hidden className="absolute inset-0 dotted-bg opacity-20" />
         <BigWord className="bottom-[6%]" opacity={0.07}>
           ATTENTION

@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { Reveal } from "./Reveal";
+import { useRef, useState } from "react";
 import { BigWord } from "./scroll/BigWord";
+import { PinnedSection, usePinProgress } from "./scroll/Pinned";
+import { enter } from "./scroll/seg";
 
 const services = [
   {
@@ -45,47 +47,107 @@ const services = [
   },
 ];
 
+const N = services.length;
+/** Deck position: 0 → first card, N-1 → last card (reached at 80% scroll). */
+const F = `min(${N - 1}, var(--sp, 0) * ${((N - 1) / 0.8).toFixed(4)})`;
+
+/**
+ * Scene 2 — Services as a card deck. Pinned: each scroll step deals the next
+ * service card on top while the earlier ones tuck in behind.
+ */
 export function Services() {
+  const ref = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+  usePinProgress(ref, (p) => {
+    const i = Math.min(N - 1, Math.round((p * (N - 1)) / 0.8));
+    setActive((cur) => (cur === i ? cur : i));
+  });
+
   return (
-    <section
+    <PinnedSection
       id="services"
-      data-scroll-scene
-      suppressHydrationWarning
-      className="relative overflow-hidden bg-cream py-20 border-b-2 border-ink md:py-32"
+      sectionRef={ref}
+      svh={100 + N * 75}
+      className="border-b-2 border-ink bg-cream"
     >
-      <BigWord className="top-6 md:top-10">SERVICES</BigWord>
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <Reveal variant="mask">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
-                ✦ What we do ✦
-              </p>
-              <h2 className="font-display max-w-2xl text-4xl tracking-tight text-balance sm:text-5xl md:text-7xl">
-                One studio. <br />
-                <span className="inline-block -rotate-1 border-2 border-ink bg-yellow px-2 sm:px-3">
-                  Every play.
-                </span>
-              </h2>
-            </div>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="max-w-md text-base font-medium text-ink/80 sm:text-lg">
-              From the first sketch to the scaled campaign, we own the whole pipeline · so you stay
-              focused on building the business.
-            </p>
-          </Reveal>
+      <BigWord className="top-20 md:top-24">SERVICES</BigWord>
+      <div className="mx-auto grid h-full max-w-7xl grid-rows-[auto_1fr] gap-5 px-4 pb-6 pt-24 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:grid-rows-1 md:items-center md:gap-12 md:pb-10 md:pt-24 lg:pl-16">
+        {/* copy + chapter list */}
+        <div>
+          <p
+            className="scene-anim mb-3 text-xs font-black uppercase tracking-[0.3em] text-crimson md:mb-4"
+            style={enter(0, 0.06, 16)}
+          >
+            ✦ What we do ✦
+          </p>
+          <h2
+            className="scene-anim font-display text-[clamp(2rem,8vw,4.5rem)] leading-[0.95] tracking-tight text-balance"
+            style={enter(0, 0.08, 40)}
+          >
+            One studio. <br />
+            <span className="mt-1 inline-block -rotate-1 border-2 border-ink bg-yellow px-2 sm:px-3">
+              Every play.
+            </span>
+          </h2>
+          <p
+            className="scene-anim mt-5 hidden max-w-md text-base font-medium text-ink/80 sm:text-lg md:block"
+            style={enter(0.02, 0.1, 24)}
+          >
+            From the first sketch to the scaled campaign, we own the whole pipeline · so you stay
+            focused on building the business.
+          </p>
+
+          <ol className="mt-8 hidden space-y-1 md:block">
+            {services.map((s, i) => (
+              <li key={s.n}>
+                <Link
+                  to={s.to}
+                  className={`group flex items-baseline gap-4 py-1.5 transition-colors duration-300 ${
+                    i === active ? "text-ink" : "text-ink/35 hover:text-ink/70"
+                  }`}
+                >
+                  <span className="w-6 font-mono text-xs">{s.n}</span>
+                  <span
+                    className={`font-display text-xl transition-transform duration-300 lg:text-2xl ${
+                      i === active ? "translate-x-1" : ""
+                    }`}
+                  >
+                    {s.title}
+                  </span>
+                  <span
+                    className={`h-0.5 flex-1 origin-left bg-crimson transition-transform duration-500 ${
+                      i === active ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 font-mono text-xs font-bold text-ink/60 md:hidden">
+            <span className="text-crimson">{services[active].n}</span> /{" "}
+            {String(N).padStart(2, "0")}
+          </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          {services.map((s, i) => (
-            <Reveal key={s.n} delay={i * 80}>
+        {/* the deck */}
+        <div className="scene-deck relative grid min-h-0 items-center md:items-center">
+          {services.map((s, i) => {
+            const incoming = `clamp(0, calc(${i} - ${F}), 1)`;
+            const past = `clamp(0, calc(${F} - ${i}), 3)`;
+            return (
               <Link
+                key={s.n}
                 to={s.to}
-                className={`card-pop block h-full rounded-3xl p-6 transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_var(--ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-crimson sm:p-8 md:p-10 ${s.bg}`}
+                tabIndex={i === active ? 0 : -1}
+                aria-hidden={i !== active}
+                className={`scene-anim card-pop block self-center rounded-3xl p-6 transition-shadow duration-200 hover:shadow-[10px_10px_0_0_var(--ink)] focus:outline-none focus-visible:ring-4 focus-visible:ring-crimson sm:p-8 md:p-10 ${s.bg}`}
+                style={{
+                  zIndex: i + 1,
+                  transform: `translate3d(0, calc(${incoming} * 100svh - ${past} * 18px), 0) scale(calc(1 - ${past} * 0.05)) rotate(calc(${incoming} * 8deg))`,
+                }}
                 aria-label={`Explore ${s.title}`}
               >
-                <div className="flex items-start justify-between mb-8">
+                <div className="mb-6 flex items-start justify-between md:mb-8">
                   <span className="font-display text-sm tracking-widest opacity-60">{s.n}</span>
                   <span
                     className={`grid h-12 w-12 place-items-center rounded-full border-2 border-ink font-display text-xl ${s.pill}`}
@@ -93,11 +155,11 @@ export function Services() {
                     ✦
                   </span>
                 </div>
-                <p className="text-sm font-bold mb-2 opacity-70">{s.eyebrow}</p>
+                <p className="mb-2 text-sm font-bold opacity-70">{s.eyebrow}</p>
                 <h3 className="mb-4 font-display text-3xl leading-none sm:text-4xl md:text-5xl">
                   {s.title}
                 </h3>
-                <p className="text-base mb-6 max-w-md opacity-90">{s.desc}</p>
+                <p className="mb-6 max-w-md text-base opacity-90">{s.desc}</p>
                 <ul className="grid gap-2 sm:grid-cols-2">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-center gap-2 text-sm font-medium">
@@ -110,10 +172,10 @@ export function Services() {
                   View service <span aria-hidden>→</span>
                 </span>
               </Link>
-            </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
-    </section>
+    </PinnedSection>
   );
 }
