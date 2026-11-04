@@ -2,14 +2,16 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png";
 
+// Section links point at the home page so they also work from other pages.
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
+  { href: "/#services", label: "Services" },
+  { href: "/work", label: "Work" },
+  { href: "/#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ];
 
-export function Navbar() {
+/** `solid`: always show the cream pill, for pages whose top section is dark. */
+export function Navbar({ solid = false }: { solid?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -25,7 +27,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-3 sm:px-5 lg:px-8">
         <nav
           className={`flex items-center justify-between gap-3 rounded-full px-3 py-2.5 transition-all duration-500 sm:px-5 sm:py-3 ${
-            scrolled ? "bg-cream border-2 border-ink shadow-pop" : ""
+            scrolled || solid ? "bg-cream border-2 border-ink shadow-pop" : ""
           }`}
         >
           <Link to="/" className="flex min-w-0 items-center gap-1.5 group sm:gap-2">
@@ -42,12 +44,22 @@ export function Navbar() {
           <ul className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="px-4 py-2 text-sm font-bold text-ink hover:text-crimson transition-colors rounded-full"
-                >
-                  {l.label}
-                </a>
+                {l.href === "/work" ? (
+                  <Link
+                    to="/work"
+                    className="px-4 py-2 text-sm font-bold text-ink hover:text-crimson transition-colors rounded-full"
+                    activeProps={{ className: "text-crimson" }}
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={l.href}
+                    className="px-4 py-2 text-sm font-bold text-ink hover:text-crimson transition-colors rounded-full"
+                  >
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

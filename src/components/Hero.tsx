@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import boyMascot from "@/assets/boy-mascot.png";
 import tvMascot from "@/assets/tv-mascot.png";
@@ -66,9 +67,9 @@ export function Hero() {
             Let's Chat!
             <span className="text-xl">→</span>
           </a>
-          <a href="#work" className="btn-pop bg-cream text-ink text-base">
+          <Link to="/work" className="btn-pop bg-cream text-ink text-base">
             See Our Work
-          </a>
+          </Link>
         </div>
       </div>
 
