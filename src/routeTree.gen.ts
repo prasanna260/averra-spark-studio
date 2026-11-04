@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
 import { Route as ProductionAdShootRouteImport } from './routes/production-ad-shoot'
 import { Route as PoliciesRouteImport } from './routes/policies'
@@ -17,6 +18,11 @@ import { Route as BrandingRouteImport } from './routes/branding'
 import { Route as Averra360RouteImport } from './routes/averra-360'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
   id: '/social-media-marketing',
   path: '/social-media-marketing',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/policies': typeof PoliciesRoute
   '/production-ad-shoot': typeof ProductionAdShootRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/policies': typeof PoliciesRoute
   '/production-ad-shoot': typeof ProductionAdShootRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/policies': typeof PoliciesRoute
   '/production-ad-shoot': typeof ProductionAdShootRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/policies'
     | '/production-ad-shoot'
     | '/social-media-marketing'
+    | '/work'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/policies'
     | '/production-ad-shoot'
     | '/social-media-marketing'
+    | '/work'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/policies'
     | '/production-ad-shoot'
     | '/social-media-marketing'
+    | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   PoliciesRoute: typeof PoliciesRoute
   ProductionAdShootRoute: typeof ProductionAdShootRoute
   SocialMediaMarketingRoute: typeof SocialMediaMarketingRoute
+  WorkRoute: typeof WorkRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/social-media-marketing': {
       id: '/social-media-marketing'
       path: '/social-media-marketing'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   PoliciesRoute: PoliciesRoute,
   ProductionAdShootRoute: ProductionAdShootRoute,
   SocialMediaMarketingRoute: SocialMediaMarketingRoute,
+  WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

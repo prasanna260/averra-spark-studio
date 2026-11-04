@@ -108,9 +108,18 @@ export function Showcase() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <p className="text-sm md:text-base text-cream/70 font-medium max-w-xs">
-              Tap any card to dive into the service →
-            </p>
+            <div className="flex max-w-xs flex-col items-start gap-4">
+              <p className="text-sm md:text-base text-cream/70 font-medium">
+                Tap any card to dive into the service →
+              </p>
+              <Link
+                to="/work"
+                className="btn-pop bg-yellow px-5 py-2.5 text-sm text-ink"
+                style={{ boxShadow: "5px 5px 0 0 var(--crimson)" }}
+              >
+                Watch our videos ▶
+              </Link>
+            </div>
           </Reveal>
         </div>
       </div>
