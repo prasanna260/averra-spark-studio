@@ -8,3 +8,9 @@ export const enter = (a: number, b: number, dist = 40, extra = ""): CSSPropertie
   opacity: seg(a, b),
   transform: `translate3d(0, calc((1 - ${seg(a, b)}) * ${dist}px), 0) ${extra}`,
 });
+
+/** Fade + slide out (upwards) between a and b. */
+export const leave = (a: number, b: number, dist = 60): CSSProperties => ({
+  opacity: `calc(1 - ${seg(a, b)})`,
+  transform: `translate3d(0, calc(${seg(a, b)} * -${dist}px), 0)`,
+});
