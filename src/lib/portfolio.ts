@@ -2,12 +2,13 @@
  * Portfolio videos shown on the /work page.
  *
  * Every entry points at its file in the Averra "Portfolio" Google Drive folder
- * (`driveId`). That is enough for a click-to-play Drive embed, as long as the
- * file is shared as "Anyone with the link can view".
+ * (`driveId`). The file must be shared as "Anyone with the link can view".
+ * Cards stream the Drive file straight into a muted, autoplaying <video>, and
+ * fall back to the click-to-play Drive player if streaming fails.
  *
- * For the full experience (muted autoplay while scrolling, mute + volume
- * control), add a `src` with a direct, web-optimised video URL from a video
- * host or CDN (e.g. Cloudflare Stream / R2, Bunny, Cloudinary, Vercel Blob).
+ * To serve a lighter, faster copy instead, set `src` to a direct,
+ * web-optimised video URL from a video host or CDN (e.g. Cloudflare Stream /
+ * R2, Bunny, Cloudinary, Vercel Blob).
  * Long-form pieces can instead set `youtubeId` for an unlisted YouTube video.
  * Optional `poster` overrides the auto-generated Drive thumbnail.
  */
@@ -271,5 +272,9 @@ export const longForm: PortfolioVideo[] = [
 
 export const driveThumbnail = (id: string, width = 800) =>
   `https://drive.google.com/thumbnail?id=${id}&sz=w${width}`;
+
+/** Direct file stream for a public Drive file, playable in a <video> tag. */
+export const driveStream = (id: string) =>
+  `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`;
 
 export const drivePreview = (id: string) => `https://drive.google.com/file/d/${id}/preview`;

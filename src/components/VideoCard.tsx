@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX, Play } from "lucide-react";
-import { drivePreview, driveThumbnail, type PortfolioVideo } from "@/lib/portfolio";
+import { drivePreview, driveStream, driveThumbnail, type PortfolioVideo } from "@/lib/portfolio";
 
 type VideoCardProps = {
   video: PortfolioVideo;
@@ -11,13 +11,16 @@ type VideoCardProps = {
 /**
  * One portfolio video in the style of a comic panel.
  *
- * - With `video.src`: a native <video> that autoplays muted while on screen,
- *   with a mute toggle and volume slider.
- * - Otherwise: a poster with a play button that swaps in a YouTube or
- *   Google Drive embed when clicked (so nothing heavy loads until asked).
+ * - By default: a native <video> that autoplays muted while on screen, with a
+ *   mute toggle and volume slider. It streams `video.src` if set, otherwise
+ *   the public Google Drive file directly.
+ * - If that stream fails (or `youtubeId` is set): a poster with a play button
+ *   that swaps in a YouTube or Google Drive embed when clicked.
  */
 export function VideoCard({ video, orientation, tag }: VideoCardProps) {
   const aspect = orientation === "vertical" ? "aspect-[9/16]" : "aspect-video";
+  const [streamFailed, setStreamFailed] = useState(false);
+  const onStreamFail = useCallback(() => setStreamFailed(true), []);
 
   return (
     <article className="group flex flex-col">
@@ -25,7 +28,11 @@ export function VideoCard({ video, orientation, tag }: VideoCardProps) {
         className={`relative ${aspect} w-full overflow-hidden rounded-3xl border-2 border-ink bg-ink transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1`}
         style={{ boxShadow: "6px 6px 0 0 var(--yellow)" }}
       >
-        {video.src ? <NativePlayer video={video} /> : <EmbedPlayer video={video} />}
+        {video.youtubeId || streamFailed ? (
+          <EmbedPlayer video={video} />
+        ) : (
+          <NativePlayer video={video} onFail={onStreamFail} />
+        )}
         {tag && (
           <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full border-2 border-ink bg-yellow px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-ink sm:text-xs">
             {tag}
@@ -42,7 +49,11 @@ export function VideoCard({ video, orientation, tag }: VideoCardProps) {
   );
 }
 
-function NativePlayer({ video }: { video: PortfolioVideo }) {
+// How long a visible video may take to show its first frame before we give up
+// and fall back to the click-to-play Drive player.
+const STREAM_TIMEOUT_MS = 20000;
+
+function NativePlayer({ video, onFail }: { video: PortfolioVideo; onFail: () => void }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [volume, setVolume] = useState(0.6);
@@ -52,16 +63,31 @@ function NativePlayer({ video }: { video: PortfolioVideo }) {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const clearTimer = () => {
+      if (timer) clearTimeout(timer);
+      timer = undefined;
+    };
+    el.addEventListener("loadeddata", clearTimer);
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.play().catch(() => {});
-        else el.pause();
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+          if (el.readyState < 2 && !timer) timer = setTimeout(onFail, STREAM_TIMEOUT_MS);
+        } else {
+          el.pause();
+          clearTimer();
+        }
       },
       { threshold: 0.4 },
     );
     obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    return () => {
+      obs.disconnect();
+      clearTimer();
+      el.removeEventListener("loadeddata", clearTimer);
+    };
+  }, [onFail]);
 
   useEffect(() => {
     const el = ref.current;
@@ -74,12 +100,17 @@ function NativePlayer({ video }: { video: PortfolioVideo }) {
     <>
       <video
         ref={ref}
-        src={video.src}
+        src={video.src ?? driveStream(video.driveId)}
         poster={video.poster ?? driveThumbnail(video.driveId)}
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        onError={onFail}
+        onClick={(e) => {
+          const el = e.currentTarget;
+          if (el.paused) el.play().catch(() => {});
+        }}
         className="h-full w-full object-cover"
         aria-label={video.title}
       />
