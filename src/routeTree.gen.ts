@@ -9,43 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkRouteImport } from './routes/work'
-import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
-import { Route as ProductionAdShootRouteImport } from './routes/production-ad-shoot'
-import { Route as PoliciesRouteImport } from './routes/policies'
-import { Route as ContentCreationRouteImport } from './routes/content-creation'
-import { Route as BrandingRouteImport } from './routes/branding'
-import { Route as Averra360RouteImport } from './routes/averra-360'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Averra360RouteImport } from './routes/averra-360'
+import { Route as BrandingRouteImport } from './routes/branding'
+import { Route as ContentCreationRouteImport } from './routes/content-creation'
+import { Route as PoliciesRouteImport } from './routes/policies'
+import { Route as ProductionAdShootRouteImport } from './routes/production-ad-shoot'
+import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
+import { Route as WorkRouteImport } from './routes/work'
 
-const WorkRoute = WorkRouteImport.update({
-  id: '/work',
-  path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
-  id: '/social-media-marketing',
-  path: '/social-media-marketing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductionAdShootRoute = ProductionAdShootRouteImport.update({
-  id: '/production-ad-shoot',
-  path: '/production-ad-shoot',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PoliciesRoute = PoliciesRouteImport.update({
-  id: '/policies',
-  path: '/policies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContentCreationRoute = ContentCreationRouteImport.update({
-  id: '/content-creation',
-  path: '/content-creation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrandingRoute = BrandingRouteImport.update({
-  id: '/branding',
-  path: '/branding',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Averra360Route = Averra360RouteImport.update({
@@ -53,9 +28,34 @@ const Averra360Route = Averra360RouteImport.update({
   path: '/averra-360',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BrandingRoute = BrandingRouteImport.update({
+  id: '/branding',
+  path: '/branding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentCreationRoute = ContentCreationRouteImport.update({
+  id: '/content-creation',
+  path: '/content-creation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliciesRoute = PoliciesRouteImport.update({
+  id: '/policies',
+  path: '/policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductionAdShootRoute = ProductionAdShootRouteImport.update({
+  id: '/production-ad-shoot',
+  path: '/production-ad-shoot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
+  id: '/social-media-marketing',
+  path: '/social-media-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -136,46 +136,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/work': {
-      id: '/work'
-      path: '/work'
-      fullPath: '/work'
-      preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/social-media-marketing': {
-      id: '/social-media-marketing'
-      path: '/social-media-marketing'
-      fullPath: '/social-media-marketing'
-      preLoaderRoute: typeof SocialMediaMarketingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/production-ad-shoot': {
-      id: '/production-ad-shoot'
-      path: '/production-ad-shoot'
-      fullPath: '/production-ad-shoot'
-      preLoaderRoute: typeof ProductionAdShootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/policies': {
-      id: '/policies'
-      path: '/policies'
-      fullPath: '/policies'
-      preLoaderRoute: typeof PoliciesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/content-creation': {
-      id: '/content-creation'
-      path: '/content-creation'
-      fullPath: '/content-creation'
-      preLoaderRoute: typeof ContentCreationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/branding': {
-      id: '/branding'
-      path: '/branding'
-      fullPath: '/branding'
-      preLoaderRoute: typeof BrandingRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/averra-360': {
@@ -185,11 +150,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Averra360RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/branding': {
+      id: '/branding'
+      path: '/branding'
+      fullPath: '/branding'
+      preLoaderRoute: typeof BrandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content-creation': {
+      id: '/content-creation'
+      path: '/content-creation'
+      fullPath: '/content-creation'
+      preLoaderRoute: typeof ContentCreationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policies': {
+      id: '/policies'
+      path: '/policies'
+      fullPath: '/policies'
+      preLoaderRoute: typeof PoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/production-ad-shoot': {
+      id: '/production-ad-shoot'
+      path: '/production-ad-shoot'
+      fullPath: '/production-ad-shoot'
+      preLoaderRoute: typeof ProductionAdShootRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-marketing': {
+      id: '/social-media-marketing'
+      path: '/social-media-marketing'
+      fullPath: '/social-media-marketing'
+      preLoaderRoute: typeof SocialMediaMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

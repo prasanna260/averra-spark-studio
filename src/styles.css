@@ -155,7 +155,8 @@
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* clip (not hidden) so body doesn't become a scroll container; keeps position: sticky working */
+    overflow-x: clip;
   }
 
   body {
@@ -163,7 +164,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   img,
