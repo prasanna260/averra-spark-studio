@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX, Play } from "lucide-react";
-import { drivePreview, driveStream, driveThumbnail, type PortfolioVideo } from "@/lib/portfolio";
+import {
+  drivePreview,
+  driveThumbnail,
+  localPoster,
+  localVideo,
+  type PortfolioVideo,
+} from "@/lib/portfolio";
 
 type VideoCardProps = {
   video: PortfolioVideo;
@@ -12,14 +18,17 @@ type VideoCardProps = {
  * One portfolio video in the style of a comic panel.
  *
  * - By default: a native <video> that autoplays muted while on screen, with a
- *   mute toggle and volume slider. It streams `video.src` if set, otherwise
- *   the public Google Drive file directly.
- * - If that stream fails (or `youtubeId` is set): a poster with a play button
- *   that swaps in a YouTube or Google Drive embed when clicked.
+ *   mute toggle and volume slider. It plays `video.src` if set, otherwise the
+ *   web-ready copy in /videos built by .github/workflows/build-videos.yml.
+ * - Long-form cards play a short preview loop and offer the full video,
+ *   which opens in the Google Drive player.
+ * - If the file is missing (or `youtubeId` is set): a poster with a play
+ *   button that swaps in a YouTube or Google Drive embed when clicked.
  */
 export function VideoCard({ video, orientation, tag }: VideoCardProps) {
   const aspect = orientation === "vertical" ? "aspect-[9/16]" : "aspect-video";
   const [streamFailed, setStreamFailed] = useState(false);
+  const [showFull, setShowFull] = useState(false);
   const onStreamFail = useCallback(() => setStreamFailed(true), []);
 
   return (
@@ -28,10 +37,14 @@ export function VideoCard({ video, orientation, tag }: VideoCardProps) {
         className={`relative ${aspect} w-full overflow-hidden rounded-3xl border-2 border-ink bg-ink transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1`}
         style={{ boxShadow: "6px 6px 0 0 var(--yellow)" }}
       >
-        {video.youtubeId || streamFailed ? (
-          <EmbedPlayer video={video} />
+        {video.youtubeId || streamFailed || showFull ? (
+          <EmbedPlayer video={video} autoStart={showFull} />
         ) : (
-          <NativePlayer video={video} onFail={onStreamFail} />
+          <NativePlayer
+            video={video}
+            onFail={onStreamFail}
+            onWatchFull={orientation === "wide" ? () => setShowFull(true) : undefined}
+          />
         )}
         {tag && (
           <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full border-2 border-ink bg-yellow px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-ink sm:text-xs">
@@ -49,11 +62,15 @@ export function VideoCard({ video, orientation, tag }: VideoCardProps) {
   );
 }
 
-// How long a visible video may take to show its first frame before we give up
-// and fall back to the click-to-play Drive player.
-const STREAM_TIMEOUT_MS = 20000;
-
-function NativePlayer({ video, onFail }: { video: PortfolioVideo; onFail: () => void }) {
+function NativePlayer({
+  video,
+  onFail,
+  onWatchFull,
+}: {
+  video: PortfolioVideo;
+  onFail: () => void;
+  onWatchFull?: () => void;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [volume, setVolume] = useState(0.6);
@@ -62,32 +79,17 @@ function NativePlayer({ video, onFail }: { video: PortfolioVideo; onFail: () => 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const clearTimer = () => {
-      if (timer) clearTimeout(timer);
-      timer = undefined;
-    };
-    el.addEventListener("loadeddata", clearTimer);
+    el.muted = true; // React doesn't render the muted attribute on the server
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          el.play().catch(() => {});
-          if (el.readyState < 2 && !timer) timer = setTimeout(onFail, STREAM_TIMEOUT_MS);
-        } else {
-          el.pause();
-          clearTimer();
-        }
+        if (entry.isIntersecting) el.play().catch(() => {});
+        else el.pause();
       },
-      { threshold: 0.4 },
+      { threshold: 0.25 },
     );
     obs.observe(el);
-    return () => {
-      obs.disconnect();
-      clearTimer();
-      el.removeEventListener("loadeddata", clearTimer);
-    };
-  }, [onFail]);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -100,12 +102,12 @@ function NativePlayer({ video, onFail }: { video: PortfolioVideo; onFail: () => 
     <>
       <video
         ref={ref}
-        src={video.src ?? driveStream(video.driveId)}
-        poster={video.poster ?? driveThumbnail(video.driveId)}
+        src={video.src ?? localVideo(video.driveId)}
+        poster={video.poster ?? localPoster(video.driveId)}
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         onError={onFail}
         onClick={(e) => {
           const el = e.currentTarget;
@@ -138,12 +140,21 @@ function NativePlayer({ video, onFail }: { video: PortfolioVideo; onFail: () => 
           aria-label={`Volume for ${video.title}`}
         />
       </div>
+      {onWatchFull && (
+        <button
+          type="button"
+          onClick={onWatchFull}
+          className="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 rounded-full border-2 border-ink bg-yellow px-3 py-1.5 text-xs font-black uppercase tracking-wider text-ink shadow-[3px_3px_0_0_var(--ink)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+        >
+          <Play className="h-3.5 w-3.5 fill-ink" /> Full video
+        </button>
+      )}
     </>
   );
 }
 
-function EmbedPlayer({ video }: { video: PortfolioVideo }) {
-  const [playing, setPlaying] = useState(false);
+function EmbedPlayer({ video, autoStart = false }: { video: PortfolioVideo; autoStart?: boolean }) {
+  const [playing, setPlaying] = useState(autoStart);
   const [posterFailed, setPosterFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
