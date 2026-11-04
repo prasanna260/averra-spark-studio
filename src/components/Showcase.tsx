@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 import branding from "@/assets/work-branding.jpg";
 import social from "@/assets/work-social-2.png";
 import content from "@/assets/work-content-2.png";
@@ -93,11 +94,16 @@ export function Showcase() {
   return (
     <section
       id="work"
+      data-scroll-scene
+      suppressHydrationWarning
       className="relative overflow-hidden border-b-2 border-ink bg-ink py-20 text-cream md:py-32"
     >
-      <div className="mx-auto mb-12 max-w-7xl px-4 sm:px-8 md:mb-14">
+      <BigWord className="top-6 md:top-10" stroke="var(--cream)" opacity={0.1} direction={-1}>
+        SELECTED WORK
+      </BigWord>
+      <div className="relative mx-auto mb-12 max-w-7xl px-4 sm:px-8 md:mb-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <Reveal>
+          <Reveal variant="mask">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-yellow font-black mb-4">
                 ✦ Selected work ✦

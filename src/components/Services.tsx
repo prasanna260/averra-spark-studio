@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 
 const services = [
   {
@@ -46,10 +47,16 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="relative bg-cream py-20 border-b-2 border-ink md:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+    <section
+      id="services"
+      data-scroll-scene
+      suppressHydrationWarning
+      className="relative overflow-hidden bg-cream py-20 border-b-2 border-ink md:py-32"
+    >
+      <BigWord className="top-6 md:top-10">SERVICES</BigWord>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <Reveal>
+          <Reveal variant="mask">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-crimson font-black mb-4">
                 ✦ What we do ✦

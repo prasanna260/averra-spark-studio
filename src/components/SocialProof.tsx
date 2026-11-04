@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { BigWord } from "./scroll/BigWord";
 
 const stats = [
   { v: "1.5M", k: "Impressions delivered", bg: "bg-crimson text-cream" },
@@ -9,7 +10,15 @@ const stats = [
 
 export function SocialProof() {
   return (
-    <section className="relative overflow-hidden bg-cyan py-20 md:py-32">
+    <section
+      id="results"
+      data-scroll-scene
+      suppressHydrationWarning
+      className="relative overflow-hidden bg-cyan py-20 md:py-32"
+    >
+      <BigWord opacity={0.12} direction={-1}>
+        RESULTS
+      </BigWord>
       {/* Decorative comic blobs */}
       <div
         aria-hidden

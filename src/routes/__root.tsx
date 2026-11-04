@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import logoUrl from "../assets/logo.png";
+import { ScrollDirector } from "@/components/scroll/ScrollDirector";
 import { SITE_NAME, SITE_URL } from "../lib/seo";
 
 function NotFoundComponent() {
@@ -106,5 +107,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <>
+      <ScrollDirector />
+      <Outlet />
+    </>
+  );
 }
